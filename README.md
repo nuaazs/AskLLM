@@ -1,7 +1,7 @@
 # AskLLM
 
 <div align=center>
-<img src="asklm.png"  width="380" height="75" />
+<img src="asklm.png"  width="380" height="380" />
 </div>
 <div align=center>
     <img src="https://img.shields.io/badge/License-Apache%202.0-brightgreen.svg" />
