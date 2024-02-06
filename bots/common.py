@@ -6,8 +6,8 @@ from utils.agent import get_choosed_result_n_times_try
 from bots.chat import send_message
 from utils.log_wrapper import logger
 
-# Import specific data
-df = pd.read_csv(cfg.data_path, encoding='utf-8', dtype={'a_id':str})
+# Import specific data, split by \t
+df = pd.read_csv(cfg.data_path, encoding='utf-8', dtype={'a_id':str}, sep='\t')
 logger.info(f"# Load data from {cfg.data_path}")
 
 def get_aid(qid,a_text):
@@ -55,7 +55,7 @@ class Bot():
             r_index,r_text = get_choosed_result_n_times_try(
                 item_list = choose_list,
                 history = history,
-                question = "用户的问题是什么？",
+                question = "用户的表达的意思是什么？",
                 n = self.query_times
             )
 

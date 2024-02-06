@@ -36,9 +36,9 @@ def get_choosed_result(item_list, history, question):
 
     Q += f"<历史对话>"
     for i in range(len(history)):
-        Q += f"\n人类：{history[i][0]}"
+        Q += f"\n机器：{history[i][0]}"
         if len(history[i]) > 1:
-            Q += f"\n机器：{history[i][1]}"
+            Q += f"\n人类：{history[i][1]}"
     Q += f"\n</历史对话>"
 
     Q += f"\n<问题>：{question}</问题>"

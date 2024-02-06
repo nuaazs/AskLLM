@@ -26,3 +26,368 @@
 2024-02-06 13:03:49,096 - utils.log_wrapper - INFO - # next_bot_q_id: 2, next_bot_text: è¯·æ‚¨æä¾›ä¸€ä¸‹æ‰‹æœºå·ï¼Œæˆ‘æ¥å¸®æ‚¨æŸ¥è¯¢æ‚¨çš„åŽ†å²è´¦å•ã€‚, next_agent: bill_check
 2024-02-06 13:04:03,598 - utils.log_wrapper - INFO - # Agent: bill_check
 2024-02-06 13:04:08,347 - utils.log_wrapper - INFO - # next_bot_q_id: 999, next_bot_text: æ„Ÿè°¢æ‚¨çš„æ¥ç”µï¼Œç¥æ‚¨ç”Ÿæ´»æ„‰å¿«ã€‚, next_agent: nan
+2024-02-06 14:18:27,493 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 14:20:10,673 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 14:21:19,550 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 14:22:10,938 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 14:22:15,729 - utils.log_wrapper - INFO - # next_bot_q_id: 0, next_bot_text: nan, next_agent: nan
+2024-02-06 14:22:23,012 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 14:22:27,805 - utils.log_wrapper - INFO - # next_bot_q_id: 0, next_bot_text: nan, next_agent: nan
+2024-02-06 14:22:46,402 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 14:22:49,463 - utils.log_wrapper - INFO - # next_bot_q_id: 1, next_bot_text: Õâ±ßÇëÄú¸æËßÎÒÒ»ÏÂÄúµÄÊÖ»úºÅÂë£¬ÎÒÀ´°ïÄú²éÑ¯Ò»ÏÂ¡£, next_agent: status_check
+2024-02-06 14:22:53,236 - utils.log_wrapper - INFO - # Agent: status_check
+2024-02-06 14:22:58,499 - utils.log_wrapper - INFO - # next_bot_q_id: 2, next_bot_text: ÇëÄúÌá¹©Ò»ÏÂÊÖ»úºÅ£¬ÎÒÀ´°ïÄú²éÑ¯ÄúµÄÀúÊ·ÕËµ¥¡£, next_agent: bill_check
+2024-02-06 14:23:01,697 - utils.log_wrapper - INFO - # Agent: bill_check
+2024-02-06 14:23:21,142 - utils.log_wrapper - INFO - # next_bot_q_id: 2, next_bot_text: ÇëÄúÌá¹©Ò»ÏÂÊÖ»úºÅ£¬ÎÒÀ´°ïÄú²éÑ¯ÄúµÄÀúÊ·ÕËµ¥¡£, next_agent: bill_check
+2024-02-06 14:23:31,005 - utils.log_wrapper - INFO - # Agent: bill_check
+2024-02-06 14:23:44,378 - utils.log_wrapper - INFO - # next_bot_q_id: 2, next_bot_text: ÇëÄúÌá¹©Ò»ÏÂÊÖ»úºÅ£¬ÎÒÀ´°ïÄú²éÑ¯ÄúµÄÀúÊ·ÕËµ¥¡£, next_agent: bill_check
+2024-02-06 14:24:12,246 - utils.log_wrapper - INFO - # Agent: bill_check
+2024-02-06 14:24:19,281 - utils.log_wrapper - INFO - # next_bot_q_id: 2, next_bot_text: ÇëÄúÌá¹©Ò»ÏÂÊÖ»úºÅ£¬ÎÒÀ´°ïÄú²éÑ¯ÄúµÄÀúÊ·ÕËµ¥¡£, next_agent: bill_check
+2024-02-06 14:24:26,966 - utils.log_wrapper - INFO - # Agent: bill_check
+2024-02-06 14:28:14,648 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 14:28:18,563 - utils.log_wrapper - INFO - Q: ÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+ÈËÀà£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+»úÆ÷£ºÃ»ÁË
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄÎÊÌâÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÕËµ¥²éÑ¯
+3. Ã»ÓÐÐèÇóÁË
+4. Î´Öª
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+2024-02-06 14:28:18,564 - utils.log_wrapper - INFO - A: 3
+2024-02-06 14:28:18,568 - utils.log_wrapper - INFO - # next_bot_q_id: 999, next_bot_text: ¸ÐÐ»ÄúµÄÀ´µç£¬×£ÄúÉú»îÓä¿ì¡£, next_agent: nan
+2024-02-06 14:29:06,240 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 14:29:09,931 - utils.log_wrapper - INFO - Q: ÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£º×Ê·Ñ²éÑ¯
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄÎÊÌâÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÕËµ¥²éÑ¯
+3. Ã»ÓÐÐèÇóÁË
+4. Î´Öª
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+2024-02-06 14:29:09,932 - utils.log_wrapper - INFO - A: 1
+2024-02-06 14:29:09,935 - utils.log_wrapper - INFO - # next_bot_q_id: 1, next_bot_text: Õâ±ßÇëÄú¸æËßÎÒÒ»ÏÂÄúµÄÊÖ»úºÅÂë£¬ÎÒÀ´°ïÄú²éÑ¯Ò»ÏÂ¡£, next_agent: status_check
+2024-02-06 14:29:15,000 - utils.log_wrapper - INFO - # Agent: status_check
+2024-02-06 14:29:15,918 - utils.log_wrapper - INFO - Q: ÇëÄãÒÔÏÂÄÚÈÝ£¬°ïÎÒÌáÈ¡ËùÓÐÓÐÐ§µÄÊÖ»úºÅÂë£¬ÒÔÁÐ±íµÄÐÎÊ½¸øÎÒ£º
+<ÄÚÈÝ>£º15151830001</ÄÚÈÝ>
+¸æËßÎÒ´ð°¸£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<json>£¬ÀýÈç£º["12345678901","12345678902"]
+2024-02-06 14:29:15,918 - utils.log_wrapper - INFO - A: ``` json
+["15151830001"]
+```
+2024-02-06 14:29:18,560 - utils.log_wrapper - INFO - Q: ÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£º×Ê·Ñ²éÑ¯
+»úÆ÷£ºÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£º×Ê·Ñ²éÑ¯
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄÎÊÌâÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÕËµ¥²éÑ¯
+3. Ã»ÓÐÐèÇóÁË
+4. Î´Öª
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+ÈËÀà£º1
+»úÆ÷£ºÕâ±ßÇëÄú¸æËßÎÒÒ»ÏÂÄúµÄÊÖ»úºÅÂë£¬ÎÒÀ´°ïÄú²éÑ¯Ò»ÏÂ¡£
+ÈËÀà£º15151830001
+»úÆ÷£ºÕâ±ßÇëÄú¸æËßÎÒÒ»ÏÂÄúµÄÊÖ»úºÅÂë£¬ÎÒÀ´°ïÄú²éÑ¯Ò»ÏÂ¡£
+ÈËÀà£º15151830001
+»úÆ÷£ºÄãºÃ£¬ÎªÄú²éÑ¯µ½µÄÊÖ»úºÅÂë×´Ì¬ÈçÏÂ£º
+ÊÖ»úºÅ£º15151830001£¬µÄ×´Ì¬Îª£ºÕý³£,Ä¿Ç°Óà¶îÎª100,Ä¿Ç°Ì×²ÍÎª39ÔªÌ×²Í,Ê£ÓàÁ÷Á¿Îª1.5GB,Ê£ÓàÌ×²ÍÄÚÍ¨»°Ê±³¤Îª100·ÖÖÓ
+ÏêÏ¸²éÑ¯½á¹û»á·¢ËÍµ½ÄúµÄÊÖ»úÉÏ£¬Çë×¢Òâ²éÊÕ¡£
+ÇëÎÊ»¹ÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£ºÕËµ¥
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄÎÊÌâÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÕËµ¥²éÑ¯
+3. Ã»ÓÐÐèÇóÁË
+4. Î´Öª
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+2024-02-06 14:29:18,563 - utils.log_wrapper - INFO - A: 2
+2024-02-06 14:29:18,567 - utils.log_wrapper - INFO - # next_bot_q_id: 2, next_bot_text: ÇëÄúÌá¹©Ò»ÏÂÊÖ»úºÅ£¬ÎÒÀ´°ïÄú²éÑ¯ÄúµÄÀúÊ·ÕËµ¥¡£, next_agent: bill_check
+2024-02-06 14:29:20,512 - utils.log_wrapper - INFO - # Agent: bill_check
+2024-02-06 14:29:21,555 - utils.log_wrapper - INFO - Q: ÇëÄãÒÔÏÂÄÚÈÝ£¬°ïÎÒÌáÈ¡ËùÓÐÓÐÐ§µÄÊÖ»úºÅÂë£¬ÒÔÁÐ±íµÄÐÎÊ½¸øÎÒ£º
+<ÄÚÈÝ>£ºÊÇ¶ñ</ÄÚÈÝ>
+¸æËßÎÒ´ð°¸£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<json>£¬ÀýÈç£º["12345678901","12345678902"]
+2024-02-06 14:29:21,556 - utils.log_wrapper - INFO - A: ±§Ç¸£¬Ìá¹©µÄÄÚÈÝ "<ÄÚÈÝ>£ºÊÇ¶ñ</ÄÚÈÝ>" ÖÐÃ»ÓÐÓÐÐ§µÄÊÖ»úºÅÂë¡£
+2024-02-06 14:29:24,246 - utils.log_wrapper - INFO - Q: ÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£º×Ê·Ñ²éÑ¯
+»úÆ÷£ºÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£º×Ê·Ñ²éÑ¯
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄÎÊÌâÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÕËµ¥²éÑ¯
+3. Ã»ÓÐÐèÇóÁË
+4. Î´Öª
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+ÈËÀà£º1
+»úÆ÷£ºÕâ±ßÇëÄú¸æËßÎÒÒ»ÏÂÄúµÄÊÖ»úºÅÂë£¬ÎÒÀ´°ïÄú²éÑ¯Ò»ÏÂ¡£
+ÈËÀà£º15151830001
+»úÆ÷£ºÕâ±ßÇëÄú¸æËßÎÒÒ»ÏÂÄúµÄÊÖ»úºÅÂë£¬ÎÒÀ´°ïÄú²éÑ¯Ò»ÏÂ¡£
+ÈËÀà£º15151830001
+»úÆ÷£ºÄãºÃ£¬ÎªÄú²éÑ¯µ½µÄÊÖ»úºÅÂë×´Ì¬ÈçÏÂ£º
+ÊÖ»úºÅ£º15151830001£¬µÄ×´Ì¬Îª£ºÕý³£,Ä¿Ç°Óà¶îÎª100,Ä¿Ç°Ì×²ÍÎª39ÔªÌ×²Í,Ê£ÓàÁ÷Á¿Îª1.5GB,Ê£ÓàÌ×²ÍÄÚÍ¨»°Ê±³¤Îª100·ÖÖÓ
+ÏêÏ¸²éÑ¯½á¹û»á·¢ËÍµ½ÄúµÄÊÖ»úÉÏ£¬Çë×¢Òâ²éÊÕ¡£
+ÇëÎÊ»¹ÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£ºÕËµ¥
+»úÆ÷£ºÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£º×Ê·Ñ²éÑ¯
+»úÆ÷£ºÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£º×Ê·Ñ²éÑ¯
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄÎÊÌâÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÕËµ¥²éÑ¯
+3. Ã»ÓÐÐèÇóÁË
+4. Î´Öª
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+ÈËÀà£º1
+»úÆ÷£ºÕâ±ßÇëÄú¸æËßÎÒÒ»ÏÂÄúµÄÊÖ»úºÅÂë£¬ÎÒÀ´°ïÄú²éÑ¯Ò»ÏÂ¡£
+ÈËÀà£º15151830001
+»úÆ÷£ºÕâ±ßÇëÄú¸æËßÎÒÒ»ÏÂÄúµÄÊÖ»úºÅÂë£¬ÎÒÀ´°ïÄú²éÑ¯Ò»ÏÂ¡£
+ÈËÀà£º15151830001
+»úÆ÷£ºÄãºÃ£¬ÎªÄú²éÑ¯µ½µÄÊÖ»úºÅÂë×´Ì¬ÈçÏÂ£º
+ÊÖ»úºÅ£º15151830001£¬µÄ×´Ì¬Îª£ºÕý³£,Ä¿Ç°Óà¶îÎª100,Ä¿Ç°Ì×²ÍÎª39ÔªÌ×²Í,Ê£ÓàÁ÷Á¿Îª1.5GB,Ê£ÓàÌ×²ÍÄÚÍ¨»°Ê±³¤Îª100·ÖÖÓ
+ÏêÏ¸²éÑ¯½á¹û»á·¢ËÍµ½ÄúµÄÊÖ»úÉÏ£¬Çë×¢Òâ²éÊÕ¡£
+ÇëÎÊ»¹ÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£ºÕËµ¥
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄÎÊÌâÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÕËµ¥²éÑ¯
+3. Ã»ÓÐÐèÇóÁË
+4. Î´Öª
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+ÈËÀà£º2
+»úÆ÷£ºÇëÎÊ»¹ÊÇ²éÑ¯¸Õ²ÅµÄ1¸öÊÖ»úºÅÂëÂð£¿
+ÈËÀà£ºÊÇ¶ñ
+»úÆ÷£ºÇëÎÊ»¹ÊÇ²éÑ¯¸Õ²ÅµÄ1¸öÊÖ»úºÅÂëÂð£¿
+ÈËÀà£ºÊÇ¶ñ
+»úÆ÷£ºÄãºÃ£¬ÎªÄú²éÑ¯µ½µÄÊÖ»úºÅÂë×´Ì¬ÈçÏÂ£º
+ÊÖ»úºÅ£º15151830001£¬µÄÕËµ¥ÏêÇéÎª£ºÏû·Ñ59Ôª£¬ÆäÖÐ°üÀ¨¹Ì¶¨Ì×²Í39ÔªÒÔ¼°Ì×²ÍÍâÁ÷Á¿ÏûºÄ20Ôª¡£ÏêÏ¸²éÑ¯½á¹û»á·¢ËÍµ½ÄúµÄÊÖ»úÉÏ£¬Çë×¢Òâ²éÊÕ¡£
+ÇëÎÊ»¹ÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£ºÃ»ÁË
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄÎÊÌâÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÕËµ¥²éÑ¯
+3. Ã»ÓÐÐèÇóÁË
+4. Î´Öª
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+2024-02-06 14:29:24,253 - utils.log_wrapper - INFO - A: 2
+2024-02-06 14:29:24,256 - utils.log_wrapper - INFO - # next_bot_q_id: 2, next_bot_text: ÇëÄúÌá¹©Ò»ÏÂÊÖ»úºÅ£¬ÎÒÀ´°ïÄú²éÑ¯ÄúµÄÀúÊ·ÕËµ¥¡£, next_agent: bill_check
+2024-02-06 14:33:20,395 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 14:33:42,111 - utils.log_wrapper - INFO - Q: ÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£ºÊÖ»ú¿¨´ò²»ÁËµç»°
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄ±í´ïµÄÒâË¼ÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ÓÃ»§Ï£Íû½øÐÐÊÖ»ú¿¨×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÓÃ»§Ï£Íû½øÐÐÕËµ¥²éÑ¯
+3. ÓÃ»§Ï£Íû½øÐÐ³äÖµ¼ÇÂ¼²éÑ¯
+4. ÓÃ»§Ï£Íû½øÐÐ¹éÊôµØ/PIN/ICCID²éÑ¯
+5. ÓÃ»§¶ÔÊÖ»úÐÅºÅÎÊÌâÓÐÒÉÎÊ
+6. ÓÃ»§Ï£Íû½øÐÐÍ£»úÔ­Òò²éÑ¯
+7. ÓÃ»§Ï£Íû½øÐÐÃ»ÓÐÐèÇóÁË
+8. ²»ÖªµÀÓÃ»§µÄÒâË¼
+9. ÓÃ»§Ï£Íû×ª½ÓÈË¹¤¿Í·þ
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+2024-02-06 14:33:42,113 - utils.log_wrapper - INFO - A: 5
+2024-02-06 14:33:42,118 - utils.log_wrapper - INFO - # next_bot_q_id: 5, next_bot_text: ÇëÄúÌá¹©Ò»ÏÂÊÖ»úºÅ£¬ÎÒÀ´°ïÄú²éÑ¯ÄúµÄÀúÊ·ÕËµ¥¡£, next_agent: bill_check
+2024-02-06 14:33:58,944 - utils.log_wrapper - INFO - # Agent: bill_check
+2024-02-06 14:33:59,892 - utils.log_wrapper - INFO - Q: ÇëÄãÒÔÏÂÄÚÈÝ£¬°ïÎÒÌáÈ¡ËùÓÐÓÐÐ§µÄÊÖ»úºÅÂë£¬ÒÔÁÐ±íµÄÐÎÊ½¸øÎÒ£º
+<ÄÚÈÝ>£º15151832002</ÄÚÈÝ>
+¸æËßÎÒ´ð°¸£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<json>£¬ÀýÈç£º["12345678901","12345678902"]
+2024-02-06 14:33:59,892 - utils.log_wrapper - INFO - A: ``` json
+["15151832002"]
+```
+2024-02-06 14:34:04,809 - utils.log_wrapper - INFO - Q: ÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£ºÊÖ»ú¿¨´ò²»ÁËµç»°
+»úÆ÷£ºÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£ºÊÖ»ú¿¨´ò²»ÁËµç»°
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄ±í´ïµÄÒâË¼ÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ÓÃ»§Ï£Íû½øÐÐÊÖ»ú¿¨×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÓÃ»§Ï£Íû½øÐÐÕËµ¥²éÑ¯
+3. ÓÃ»§Ï£Íû½øÐÐ³äÖµ¼ÇÂ¼²éÑ¯
+4. ÓÃ»§Ï£Íû½øÐÐ¹éÊôµØ/PIN/ICCID²éÑ¯
+5. ÓÃ»§¶ÔÊÖ»úÐÅºÅÎÊÌâÓÐÒÉÎÊ
+6. ÓÃ»§Ï£Íû½øÐÐÍ£»úÔ­Òò²éÑ¯
+7. ÓÃ»§Ï£Íû½øÐÐÃ»ÓÐÐèÇóÁË
+8. ²»ÖªµÀÓÃ»§µÄÒâË¼
+9. ÓÃ»§Ï£Íû×ª½ÓÈË¹¤¿Í·þ
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+ÈËÀà£º5
+»úÆ÷£ºÇëÄúÌá¹©Ò»ÏÂÊÖ»úºÅ£¬ÎÒÀ´°ïÄú²éÑ¯ÄúµÄÀúÊ·ÕËµ¥¡£
+ÈËÀà£º15151832002
+»úÆ÷£ºÇëÄúÌá¹©Ò»ÏÂÊÖ»úºÅ£¬ÎÒÀ´°ïÄú²éÑ¯ÄúµÄÀúÊ·ÕËµ¥¡£
+ÈËÀà£º15151832002
+»úÆ÷£ºÄãºÃ£¬ÎªÄú²éÑ¯µ½µÄÊÖ»úºÅÂë×´Ì¬ÈçÏÂ£º
+ÊÖ»úºÅ£º15151832002£¬µÄÕËµ¥ÏêÇéÎª£ºÏû·Ñ59Ôª£¬ÆäÖÐ°üÀ¨¹Ì¶¨Ì×²Í39ÔªÒÔ¼°Ì×²ÍÍâÁ÷Á¿ÏûºÄ20Ôª¡£ÏêÏ¸²éÑ¯½á¹û»á·¢ËÍµ½ÄúµÄÊÖ»úÉÏ£¬Çë×¢Òâ²éÊÕ¡£
+ÇëÎÊ»¹ÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£º×Ê·Ñ²éÑ¯
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄ±í´ïµÄÒâË¼ÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ÓÃ»§Ï£Íû½øÐÐÊÖ»ú¿¨×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÓÃ»§Ï£Íû½øÐÐÕËµ¥²éÑ¯
+3. ÓÃ»§Ï£Íû½øÐÐ³äÖµ¼ÇÂ¼²éÑ¯
+4. ÓÃ»§Ï£Íû½øÐÐ¹éÊôµØ/PIN/ICCID²éÑ¯
+5. ÓÃ»§¶ÔÊÖ»úÐÅºÅÎÊÌâÓÐÒÉÎÊ
+6. ÓÃ»§Ï£Íû½øÐÐÍ£»úÔ­Òò²éÑ¯
+7. ÓÃ»§Ï£Íû½øÐÐÃ»ÓÐÐèÇóÁË
+8. ²»ÖªµÀÓÃ»§µÄÒâË¼
+9. ÓÃ»§Ï£Íû×ª½ÓÈË¹¤¿Í·þ
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+2024-02-06 14:34:04,816 - utils.log_wrapper - INFO - A: 1
+2024-02-06 14:34:04,819 - utils.log_wrapper - INFO - # next_bot_q_id: 1, next_bot_text: Õâ±ßÇëÄú¸æËßÎÒÒ»ÏÂÄúµÄÊÖ»úºÅÂë£¬ÎÒÀ´°ïÄú²éÑ¯Ò»ÏÂ¡£, next_agent: status_check
+2024-02-06 14:34:07,048 - utils.log_wrapper - INFO - # Agent: status_check
+2024-02-06 14:34:08,069 - utils.log_wrapper - INFO - Q: ÇëÄãÒÔÏÂÄÚÈÝ£¬°ïÎÒÌáÈ¡ËùÓÐÓÐÐ§µÄÊÖ»úºÅÂë£¬ÒÔÁÐ±íµÄÐÎÊ½¸øÎÒ£º
+<ÄÚÈÝ>£ºÊÇµÄ</ÄÚÈÝ>
+¸æËßÎÒ´ð°¸£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<json>£¬ÀýÈç£º["12345678901","12345678902"]
+2024-02-06 14:34:08,070 - utils.log_wrapper - INFO - A: ±§Ç¸£¬Ìá¹©µÄÄÚÈÝ "<ÄÚÈÝ>£ºÊÇµÄ</ÄÚÈÝ>" ÖÐÃ»ÓÐÓÐÐ§µÄÊÖ»úºÅÂë¡£
+2024-02-06 14:34:10,408 - utils.log_wrapper - INFO - Q: ÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£ºÊÖ»ú¿¨´ò²»ÁËµç»°
+»úÆ÷£ºÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£ºÊÖ»ú¿¨´ò²»ÁËµç»°
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄ±í´ïµÄÒâË¼ÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ÓÃ»§Ï£Íû½øÐÐÊÖ»ú¿¨×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÓÃ»§Ï£Íû½øÐÐÕËµ¥²éÑ¯
+3. ÓÃ»§Ï£Íû½øÐÐ³äÖµ¼ÇÂ¼²éÑ¯
+4. ÓÃ»§Ï£Íû½øÐÐ¹éÊôµØ/PIN/ICCID²éÑ¯
+5. ÓÃ»§¶ÔÊÖ»úÐÅºÅÎÊÌâÓÐÒÉÎÊ
+6. ÓÃ»§Ï£Íû½øÐÐÍ£»úÔ­Òò²éÑ¯
+7. ÓÃ»§Ï£Íû½øÐÐÃ»ÓÐÐèÇóÁË
+8. ²»ÖªµÀÓÃ»§µÄÒâË¼
+9. ÓÃ»§Ï£Íû×ª½ÓÈË¹¤¿Í·þ
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+ÈËÀà£º5
+»úÆ÷£ºÇëÄúÌá¹©Ò»ÏÂÊÖ»úºÅ£¬ÎÒÀ´°ïÄú²éÑ¯ÄúµÄÀúÊ·ÕËµ¥¡£
+ÈËÀà£º15151832002
+»úÆ÷£ºÇëÄúÌá¹©Ò»ÏÂÊÖ»úºÅ£¬ÎÒÀ´°ïÄú²éÑ¯ÄúµÄÀúÊ·ÕËµ¥¡£
+ÈËÀà£º15151832002
+»úÆ÷£ºÄãºÃ£¬ÎªÄú²éÑ¯µ½µÄÊÖ»úºÅÂë×´Ì¬ÈçÏÂ£º
+ÊÖ»úºÅ£º15151832002£¬µÄÕËµ¥ÏêÇéÎª£ºÏû·Ñ59Ôª£¬ÆäÖÐ°üÀ¨¹Ì¶¨Ì×²Í39ÔªÒÔ¼°Ì×²ÍÍâÁ÷Á¿ÏûºÄ20Ôª¡£ÏêÏ¸²éÑ¯½á¹û»á·¢ËÍµ½ÄúµÄÊÖ»úÉÏ£¬Çë×¢Òâ²éÊÕ¡£
+ÇëÎÊ»¹ÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£º×Ê·Ñ²éÑ¯
+»úÆ÷£ºÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£ºÊÖ»ú¿¨´ò²»ÁËµç»°
+»úÆ÷£ºÇëÄãÒÔÏÂ¶Ô»°£¬È»ºó»Ø´ð£º
+<ÀúÊ·¶Ô»°>
+»úÆ÷£ºÄúºÃ£¬ÕâÀïÊÇ³¤½­Ê±´ú¿Í·þÖÐÐÄ£¬ºÜ¸ßÐËÎªÄú·þÎñ¡£ÇëÎÊÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£ºÊÖ»ú¿¨´ò²»ÁËµç»°
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄ±í´ïµÄÒâË¼ÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ÓÃ»§Ï£Íû½øÐÐÊÖ»ú¿¨×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÓÃ»§Ï£Íû½øÐÐÕËµ¥²éÑ¯
+3. ÓÃ»§Ï£Íû½øÐÐ³äÖµ¼ÇÂ¼²éÑ¯
+4. ÓÃ»§Ï£Íû½øÐÐ¹éÊôµØ/PIN/ICCID²éÑ¯
+5. ÓÃ»§¶ÔÊÖ»úÐÅºÅÎÊÌâÓÐÒÉÎÊ
+6. ÓÃ»§Ï£Íû½øÐÐÍ£»úÔ­Òò²éÑ¯
+7. ÓÃ»§Ï£Íû½øÐÐÃ»ÓÐÐèÇóÁË
+8. ²»ÖªµÀÓÃ»§µÄÒâË¼
+9. ÓÃ»§Ï£Íû×ª½ÓÈË¹¤¿Í·þ
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+ÈËÀà£º5
+»úÆ÷£ºÇëÄúÌá¹©Ò»ÏÂÊÖ»úºÅ£¬ÎÒÀ´°ïÄú²éÑ¯ÄúµÄÀúÊ·ÕËµ¥¡£
+ÈËÀà£º15151832002
+»úÆ÷£ºÇëÄúÌá¹©Ò»ÏÂÊÖ»úºÅ£¬ÎÒÀ´°ïÄú²éÑ¯ÄúµÄÀúÊ·ÕËµ¥¡£
+ÈËÀà£º15151832002
+»úÆ÷£ºÄãºÃ£¬ÎªÄú²éÑ¯µ½µÄÊÖ»úºÅÂë×´Ì¬ÈçÏÂ£º
+ÊÖ»úºÅ£º15151832002£¬µÄÕËµ¥ÏêÇéÎª£ºÏû·Ñ59Ôª£¬ÆäÖÐ°üÀ¨¹Ì¶¨Ì×²Í39ÔªÒÔ¼°Ì×²ÍÍâÁ÷Á¿ÏûºÄ20Ôª¡£ÏêÏ¸²éÑ¯½á¹û»á·¢ËÍµ½ÄúµÄÊÖ»úÉÏ£¬Çë×¢Òâ²éÊÕ¡£
+ÇëÎÊ»¹ÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£º×Ê·Ñ²éÑ¯
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄ±í´ïµÄÒâË¼ÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ÓÃ»§Ï£Íû½øÐÐÊÖ»ú¿¨×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÓÃ»§Ï£Íû½øÐÐÕËµ¥²éÑ¯
+3. ÓÃ»§Ï£Íû½øÐÐ³äÖµ¼ÇÂ¼²éÑ¯
+4. ÓÃ»§Ï£Íû½øÐÐ¹éÊôµØ/PIN/ICCID²éÑ¯
+5. ÓÃ»§¶ÔÊÖ»úÐÅºÅÎÊÌâÓÐÒÉÎÊ
+6. ÓÃ»§Ï£Íû½øÐÐÍ£»úÔ­Òò²éÑ¯
+7. ÓÃ»§Ï£Íû½øÐÐÃ»ÓÐÐèÇóÁË
+8. ²»ÖªµÀÓÃ»§µÄÒâË¼
+9. ÓÃ»§Ï£Íû×ª½ÓÈË¹¤¿Í·þ
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+ÈËÀà£º1
+»úÆ÷£ºÇëÎÊ»¹ÊÇ²éÑ¯¸Õ²ÅµÄ1¸öÊÖ»úºÅÂëÂð£¿
+ÈËÀà£ºÊÇµÄ
+»úÆ÷£ºÇëÎÊ»¹ÊÇ²éÑ¯¸Õ²ÅµÄ1¸öÊÖ»úºÅÂëÂð£¿
+ÈËÀà£ºÊÇµÄ
+»úÆ÷£ºÄãºÃ£¬ÎªÄú²éÑ¯µ½µÄÊÖ»úºÅÂë×´Ì¬ÈçÏÂ£º
+ÊÖ»úºÅ£º15151832002£¬µÄ×´Ì¬Îª£ºÍ£»ú,Ä¿Ç°Óà¶îÎª0,Ä¿Ç°Ì×²ÍÎªÎÞ,Ê£ÓàÁ÷Á¿Îª0,Ê£ÓàÌ×²ÍÄÚÍ¨»°Ê±³¤Îª0
+ÏêÏ¸²éÑ¯½á¹û»á·¢ËÍµ½ÄúµÄÊÖ»úÉÏ£¬Çë×¢Òâ²éÊÕ¡£
+ÇëÎÊ»¹ÓÐÊ²Ã´¿ÉÒÔ°ïµ½ÄúµÄÂð£¿
+ÈËÀà£ºÃ»ÁË
+</ÀúÊ·¶Ô»°>
+<ÎÊÌâ>£ºÓÃ»§µÄ±í´ïµÄÒâË¼ÊÇÊ²Ã´£¿</ÎÊÌâ>
+<Ñ¡Ïî>£º
+1. ÓÃ»§Ï£Íû½øÐÐÊÖ»ú¿¨×´Ì¬¡¢Óà¶î¡¢×Ê·Ñ²éÑ¯
+2. ÓÃ»§Ï£Íû½øÐÐÕËµ¥²éÑ¯
+3. ÓÃ»§Ï£Íû½øÐÐ³äÖµ¼ÇÂ¼²éÑ¯
+4. ÓÃ»§Ï£Íû½øÐÐ¹éÊôµØ/PIN/ICCID²éÑ¯
+5. ÓÃ»§¶ÔÊÖ»úÐÅºÅÎÊÌâÓÐÒÉÎÊ
+6. ÓÃ»§Ï£Íû½øÐÐÍ£»úÔ­Òò²éÑ¯
+7. ÓÃ»§Ï£Íû½øÐÐÃ»ÓÐÐèÇóÁË
+8. ²»ÖªµÀÓÃ»§µÄÒâË¼
+9. ÓÃ»§Ï£Íû×ª½ÓÈË¹¤¿Í·þ
+</Ñ¡Ïî>
+¸æËßÎÒ´ð°¸ÐòºÅ£¬²»ÐèÒªÈÎºÎ½âÊÍ£¬²»ÐèÒªÈÎºÎÆäËûÎÄ±¾¡£»Ø´ð¸ñÊ½<Êý×Ö>£¬ÀýÈç£º1
+2024-02-06 14:34:10,434 - utils.log_wrapper - INFO - A: 7
+2024-02-06 14:34:10,441 - utils.log_wrapper - INFO - # next_bot_q_id: 999, next_bot_text: ¸ÐÐ»ÄúµÄÀ´µç£¬×£ÄúÉú»îÓä¿ì¡£, next_agent: nan

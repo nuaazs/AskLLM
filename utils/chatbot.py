@@ -6,6 +6,7 @@
 import requests
 import json
 import dashscope
+from utils.log_wrapper import logger
 
 def chat(Q,history):
     messages = [{'role': 'system', 'content': 'You are a helpful assistant.'}]
@@ -18,6 +19,8 @@ def chat(Q,history):
     )
     new_history = history
     new_history.append((Q,response['output']['choices'][0]['message']['content']))
+    logger.info(f"Q: {Q}")
+    logger.info(f"A: {response['output']['choices'][0]['message']['content']}")
     return response['output']['choices'][0]['message']['content'], new_history
 
 if __name__ == '__main__':
