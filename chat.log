@@ -1,0 +1,28 @@
+2024-02-06 12:45:57,378 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 12:46:02,178 - utils.log_wrapper - INFO - # next_bot_q_id: 0, next_bot_text: nan, next_agent: nan
+2024-02-06 12:46:14,015 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 12:46:32,087 - utils.log_wrapper - INFO - # next_bot_q_id: 1, next_bot_text: 这边请您告诉我一下您的手机号码，我来帮您查询一下。, next_agent: status_check
+2024-02-06 12:46:45,051 - utils.log_wrapper - INFO - # Agent: status_check
+2024-02-06 12:46:51,545 - utils.log_wrapper - INFO - # next_bot_q_id: 2, next_bot_text: 请您提供一下手机号，我来帮您查询您的历史账单。, next_agent: bill_check
+2024-02-06 12:59:23,980 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 12:59:58,527 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 13:00:01,570 - utils.log_wrapper - INFO - # next_bot_q_id: 1, next_bot_text: 这边请您告诉我一下您的手机号码，我来帮您查询一下。, next_agent: status_check
+2024-02-06 13:00:04,606 - utils.log_wrapper - INFO - # Agent: status_check
+2024-02-06 13:00:09,915 - utils.log_wrapper - INFO - # next_bot_q_id: 2, next_bot_text: 请您提供一下手机号，我来帮您查询您的历史账单。, next_agent: bill_check
+2024-02-06 13:00:13,842 - utils.log_wrapper - INFO - # Agent: bill_check
+2024-02-06 13:01:20,472 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 13:01:23,571 - utils.log_wrapper - INFO - # next_bot_q_id: 999, next_bot_text: 感谢您的来电，祝您生活愉快。, next_agent: nan
+2024-02-06 13:02:21,221 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 13:02:35,808 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 13:02:39,093 - utils.log_wrapper - INFO - # next_bot_q_id: 1, next_bot_text: 这边请您告诉我一下您的手机号码，我来帮您查询一下。, next_agent: status_check
+2024-02-06 13:02:43,069 - utils.log_wrapper - INFO - # Agent: status_check
+2024-02-06 13:02:48,388 - utils.log_wrapper - INFO - # next_bot_q_id: 2, next_bot_text: 请您提供一下手机号，我来帮您查询您的历史账单。, next_agent: bill_check
+2024-02-06 13:02:50,369 - utils.log_wrapper - INFO - # Agent: bill_check
+2024-02-06 13:03:31,600 - utils.log_wrapper - INFO - # Load data from ./data.csv
+2024-02-06 13:03:33,541 - utils.log_wrapper - INFO - # next_bot_q_id: 1, next_bot_text: 这边请您告诉我一下您的手机号码，我来帮您查询一下。, next_agent: status_check
+2024-02-06 13:03:36,246 - utils.log_wrapper - INFO - # Agent: status_check
+2024-02-06 13:03:41,028 - utils.log_wrapper - INFO - # next_bot_q_id: 2, next_bot_text: 请您提供一下手机号，我来帮您查询您的历史账单。, next_agent: bill_check
+2024-02-06 13:03:44,272 - utils.log_wrapper - INFO - # Agent: bill_check
+2024-02-06 13:03:49,096 - utils.log_wrapper - INFO - # next_bot_q_id: 2, next_bot_text: 请您提供一下手机号，我来帮您查询您的历史账单。, next_agent: bill_check
+2024-02-06 13:04:03,598 - utils.log_wrapper - INFO - # Agent: bill_check
+2024-02-06 13:04:08,347 - utils.log_wrapper - INFO - # next_bot_q_id: 999, next_bot_text: 感谢您的来电，祝您生活愉快。, next_agent: nan
