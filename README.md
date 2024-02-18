@@ -1,3 +1,6 @@
+[![中文文档](https://img.shields.io/badge/-中文-red?style=flat-square)](README_zh_cn.md)
+
+
 # AskLLM
 
 <div align=center>

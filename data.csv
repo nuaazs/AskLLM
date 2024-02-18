@@ -13,5 +13,5 @@ q_id	prefix_first	text	type	a	a_id	next_q_id	prefix	after_loop_id	agent	if_error
 2	好的，	请您提供一下手机号，我来帮您查询您的历史账单。	1	说话人提供了手机号	1-0	0	不好意思，刚才没有听清，		bill_check	2	ask_phone
 3	好的，	请您提供一下手机号，我来帮您查询您的充值记录。	1	说话人提供了手机号	1-0	0	不好意思，刚才没有听清，		bill_check	2	ask_phone
 4	好的，	请您提供一下手机号，我来帮您查询您的归属地等信息。	1	说话人提供了手机号	1-0	0	不好意思，刚才没有听清，		bill_check	2	ask_phone
-5	好的，	请您提供一下手机号，我来帮您查询您的历史账单。	1	说话人提供了手机号	1-0	0	不好意思，刚才没有听清，		bill_check	2	ask_phone
+5	好的，	请您提供一下手机号，我来帮您查询您的手机状态。	1	说话人提供了手机号	1-0	0	不好意思，刚才没有听清，		status_check	2	ask_phone
 6	好的，	请您提供一下手机号，我来帮您查询您的停机原因。	1	说话人提供了手机号	1-0	0	不好意思，刚才没有听清，		bill_check	2	ask_phone
