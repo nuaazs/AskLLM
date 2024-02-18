@@ -23,6 +23,7 @@ class Agent:
 
         for i in range(len(self.phones)):
             msg += f"手机号：{self.phones[i]}，的账单详情为：{phone_status[i]}"
+            
         msg += "详细查询结果会发送到您的手机上，请注意查收。"
         msg += "\n请问还有什么可以帮到您的吗？"
         return msg
