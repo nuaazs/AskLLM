@@ -16,8 +16,8 @@ file_handler.setLevel(logging.INFO)
 logger.addHandler(file_handler)
 
 # Print to console
-# stream_handler = logging.StreamHandler()
-# stream_handler.setFormatter(formatter)
-# stream_handler.setLevel(logging.INFO)
-# logger.addHandler(stream_handler)
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(formatter)
+stream_handler.setLevel(logging.INFO)
+logger.addHandler(stream_handler)
 
