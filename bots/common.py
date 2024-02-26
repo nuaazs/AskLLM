@@ -1,6 +1,8 @@
 import pandas as pd
 import importlib
+import requests
 import cfg
+import time
 
 from utils.agent import get_choosed_result_n_times_try
 from bots.chat import send_message
@@ -41,58 +43,74 @@ def next_q(qid,aid):
 class Bot():
     def __init__(self):
         self.history = []
-        self.first_choose_list = df[df['q_id'] == 0]['a'].values
-        self.query_times = cfg.query_times
+        self.query_times = 0
         self.next_bot_q_id = 0
         self.phones = []
+        
+    def wav2text(self,wav_file_path):
+        payload={}
+        files=[
+        ('wav_file',('<wav_file>',open('<wav_file>','rb'),'application/octet-stream'))
+        ]
+        headers = {
+        'User-Agent': 'apifox/1.0.0 (https://www.apifox.cn)'
+        }
+        response = requests.request("POST", cfg.ASR_URL, headers=headers, data=payload, files=files)
+        text = response.text
+        return text
 
-    def init_chat(self,human_response,history):
-        while True:
-            # Get the first question's answer list
-            choose_list = df[df['q_id'] == int(self.next_bot_q_id)]['a'].values
-            
-            # LLM classification
-            r_index,r_text = get_choosed_result_n_times_try(
-                item_list = choose_list,
-                history = history,
-                question = "用户的表达的意思是什么？",
-                n = self.query_times
-            )
+    def text2wav(self,text,oss=False):
+        payload={"oss":oss}
+        headers = {
+        'User-Agent': 'apifox/1.0.0 (https://www.apifox.cn)'
+        }
+        response = requests.request("POST", cfg.TTS_URL, headers=headers, data=payload)
+        if oss:
+            return response.json()['data']['oss_url']
+        else:
+            wav_file = response.content
+            wav_file_path = f"./tmp/{int(time.time())}.wav"
+            with open(wav_file_path, "wb") as f:
+                f.write(wav_file)
+            return wav_file_path
 
-            # Get answer type id
-            aid = get_aid(self.next_bot_q_id,r_text)
-            
-            # Get the next question and other information
-            result = next_q(0,aid)
-            self.next_bot_q_id = result['next_bot_q_id']
-            next_bot_text = result['next_bot_text']
-            next_agent = result['next_agent']
-            error_bot_q_id = result['error_bot_q_id']
-            next_bot_label = result['next_bot_label']
-            prefix = result['prefix']
-            prefix_first = result['prefix_first']
-            if_error = result['if_error']
+    def get_response(self,user_question):
+        choose_list = df[df['q_id'] == int(self.next_bot_q_id)]['a'].values
+        r_index,r_text = get_choosed_result_n_times_try(
+            item_list = choose_list,
+            history = history,
+            question = "用户的表达的意思是什么？",
+            n = self.query_times
+        )
 
+        # Get answer type id
+        aid = get_aid(self.next_bot_q_id,r_text)
+        
+        # Get the next question and other information
+        result = next_q(0,aid)
+        self.next_bot_q_id = result['next_bot_q_id']
+        next_bot_text = result['next_bot_text']
+        next_agent = result['next_agent']
+        error_bot_q_id = result['error_bot_q_id']
+        next_bot_label = result['next_bot_label']
+        prefix = result['prefix']
+        prefix_first = result['prefix_first']
+        if_error = result['if_error']
 
+        if next_agent:
+            _class = importlib.import_module(f"bots.{next_agent}")
+            # Agent
+            logger.info(f"# Agent: {next_agent}")
+            agent = getattr(_class, "Agent")(history=history,phones=self.phones)
+            agnet_response = agent.agent_chat(next_bot_text,human_response)
+            self.phones = agent.phones
+            human_response,history = send_message(agnet_response,history=history)
+            self.now_count = 0
+            self.next_bot_q_id = 0
+        else:
             # If the next_bot_q_id is -1, then break (end of the conversation)
             if self.next_bot_q_id == -1:
-                break
-
-            logger.info(f"# next_bot_q_id: {self.next_bot_q_id}, next_bot_text: {next_bot_text}, next_agent: {next_agent}")
-            
+                return "好的，非常感谢您的来电，祝您生活愉快。"
             if next_bot_label == "ask_phone" and len(self.phones) > 0:
                 next_bot_text = f"请问还是查询刚才的{len(self.phones)}个手机号码吗？"
-
-            human_response,history = send_message(next_bot_text,history=history)
-            if next_agent:
-                _class = importlib.import_module(f"bots.{next_agent}")
-                # Agent
-                logger.info(f"# Agent: {next_agent}")
-                agent = getattr(_class, "Agent")(history=history,phones=self.phones)
-                agnet_response = agent.agent_chat(next_bot_text,human_response)
-                self.phones = agent.phones
-                human_response,history = send_message(agnet_response,history=history)
-                self.now_count = 0
-                self.next_bot_q_id = 0
-        send_message("感谢您的来电，祝您生活愉快~",history=history)
-        
+            self.history.append((user_question,r_text))
