@@ -11,6 +11,7 @@ def replace_non_digits_with_space(s):
 def request_Q(Q, history):
     """ Chat with the model (offline) """
     response, history = chat(Q, history=history)
+    print(f"response: #{response} #")
     return response, history
 
 def get_phone_number_list(text):
@@ -36,9 +37,9 @@ def get_choosed_result(item_list, history, question):
 
     Q += f"<历史对话>"
     for i in range(len(history)):
-        Q += f"\n人类：{history[i][0]}"
+        Q += f"\n机器：{history[i][0]}"
         if len(history[i]) > 1:
-            Q += f"\n机器：{history[i][1]}"
+            Q += f"\n人类：{history[i][1]}"
     Q += f"\n</历史对话>"
 
     Q += f"\n<问题>：{question}</问题>"
@@ -49,9 +50,15 @@ def get_choosed_result(item_list, history, question):
     Q += f"\n告诉我答案序号，不需要任何解释，不需要任何其他文本。回答格式<数字>，例如：1"
     # print(f"Q: {Q}")
     response, history = request_Q(Q, history)
+    # 去除response中的换行符
+    response = response.replace("\n", "")
     # print(f"response: {response}")
     try:
+        print("response: ", response)
+        print(''.join(filter(str.isdigit, response))[0])
+        print(item_list)
         select_index = int(''.join(filter(str.isdigit, response))[0]) - 1
+        print(f"select_index: {select_index}")
         selected_a = item_list[select_index]
         # print(f"select_index: {select_index}, selected_a: {selected_a}")
     except:
