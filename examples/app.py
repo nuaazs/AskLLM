@@ -1,37 +1,37 @@
+# coding = utf-8
+# @Time    : 2024-02-27  14:37:43
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: Gradio APP demo.
+
 import gradio as gr
 import requests
-import soundfile as sf
 import time
 import torchaudio
 import torch
 import cfg
 import tempfile
-from flask import Flask, request, jsonify, Response
 from pydub import AudioSegment
+import io
+
 
 def chat_with_bot(user_audio,session_id):
 
-    url = "http://localhost:8765/chat"
+    url = f"http://localhost:{cfg.PORT}/chat"
     sampling_rate, np_audio_data = user_audio
     audio_data = torch.tensor(np_audio_data, dtype=torch.float32).unsqueeze(0)
     filename = f'/tmp/{int(time.time())}.wav'
     torchaudio.save(filename, audio_data, sampling_rate)
-    # 发送请求，并确保设置 stream=True 来获取流式响应
-    response = requests.post(url, files={"audio": open(filename, "rb")}, data={"session_id": session_id}, stream=True)
 
-    # if response.status_code == 200:
-    print("开始接收流式数据")
+    response = requests.post(url, files={"audio": open(filename, "rb")}, data={"session_id": session_id}, stream=True)
     i = 0
     format = "wav"
-    # 迭代响应的流式内容
-    for chunk in response.iter_content(chunk_size=1024):  # 您可以根据需要调整 chunk_size 的大小
-        if chunk:  # 过滤掉保活新行
+    for chunk in response.iter_content(chunk_size=1024):
+        if chunk:
             i += 1
             file_path = f"{tempfile.gettempdir()}/{i}.{format}"
             print(file_path)
-            # 使用 pydub 处理音频数据
-            segment = AudioSegment(chunk, frame_rate=32000, sample_width=2, channels=1)
-            segment.export(file_path, format=format)
+            segment = AudioSegment.from_raw(io.BytesIO(chunk), sample_width=2, frame_rate=32000, channels=1)
+            segment.export(file_path, format="wav")
             yield file_path
 
 
@@ -73,7 +73,19 @@ with gr.Blocks(title='AI-XiaoXu') as demo:
     def clear_chatbot():
         chatbot.value = []  # Clear chatbot history directly
 
-    send_button.click(chat_with_bot, inputs=[audio,session_id], outputs=[bot_response_audio])
+    # send_button.click(chat_with_bot, inputs=[audio,session_id], outputs=[bot_response_audio])
+    text = gr.Textbox(visible=False, label="text")
+    
+    text_msgs = send_button.click(
+            chat_with_bot,
+            [
+                audio,
+                session_id
+            ],
+            [bot_response_audio],
+        )
+    text_msgs.then(lambda: gr.update(interactive=True), None, [text], queue=False)
+    
     clear_button.click(clear_chatbot, inputs=[], outputs=[chatbot])
 
-demo.launch()
+demo.launch(enable_queue=True,inbrowser=True,)
