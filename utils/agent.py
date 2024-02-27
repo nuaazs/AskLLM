@@ -16,7 +16,7 @@ def request_Q(Q, history):
 
 def get_phone_number_list(text):
     """ Get the phone number list from the model (offline) """
-    Q = f"请你以下内容，帮我提取所有有效的手机号码，以列表的形式给我：\n"
+    Q = f"请你以下内容，帮我提取所有有效的手机号码，以列表的形式给我（注意，你需要考虑到中文对话习惯，如果是中文则将中文转化成对应的手机号）：\n"
     Q += f"<内容>：{text}</内容>"
     Q += f"\n告诉我答案，不需要任何解释，不需要任何其他文本。回答格式<json>，例如：[\"12345678901\",\"12345678902\"]"
     response, history = request_Q(Q, [])
