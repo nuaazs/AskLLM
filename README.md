@@ -1,11 +1,9 @@
 [![中文文档](https://img.shields.io/badge/-中文-red?style=flat-square)](README_zh_cn.md)
 
-端口 8765
-
 # AskLLM
 
 <div align=center>
-<img src="asklm.png"  width="380" height="380" />
+<img src="asklm.png"  width="206.5" height="80.45" />
 </div>
 <div align=center>
     <img src="https://img.shields.io/badge/License-Apache%202.0-brightgreen.svg" />
