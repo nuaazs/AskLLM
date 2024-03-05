@@ -20,6 +20,9 @@ import cfg
 from bots.common import Bot
 from utils.database import save_to_redis, get_from_redis
 
+# log
+from utils.log_wrapper import logger
+logger.info("Start chat server.")
 
 # init chat server
 app = Flask(__name__)
@@ -27,47 +30,59 @@ app = Flask(__name__)
 @app.route('/chat', methods=['POST'])
 def chatchat():
     init_time = time.time()
-    # 1. Get audio file and session_id
-    audio_file = request.files['audio']
+    
+    # 1. Get session_id
     session_id = request.form.get('session_id')
     # 2. Get history qid from redis
     history = get_from_redis(f"{session_id}_history",[])
     now_qid = get_from_redis(f"{session_id}_qid",0)
+    meet_qid = get_from_redis(f"{session_id}_meet_qid",[])
     # 3. clean history
     history = [i for i in history if len(i) > 1]
     # 4. init Bot
-    bot = Bot(history=history)
-    print(f"Init time: {time.time()-init_time}")
-    # 5. ASR
-    asr_start_time = time.time()
-    Q = bot.wav2text(audio_file)
-    print(f"ASR time: {time.time()-asr_start_time}")
+    bot = Bot(history=history,meet_qid=meet_qid)
+    logger.info(f"Init time: {time.time()-init_time}")
+    
+    if cfg.MODE == "phone":
+        # 5. ASR
+        asr_start_time = time.time()
+        audio_file = request.files['audio']
+        Q = bot.wav2text(audio_file)
+        logger.info(f"ASR time: {time.time()-asr_start_time}")
+    elif cfg.MODE == "chat":
+        Q = request.form.get('Q')
+    
     bot_time = time.time()
     A,next_q_id = bot.get_response(Q,now_qid)
     history.append((Q, A))
     # 6. update history to redis
     save_to_redis(f"{session_id}_history",history)
     save_to_redis(f"{session_id}_qid",next_q_id)
-    print(f"Bot time: {time.time()-bot_time}")
+    save_to_redis(f"{session_id}_meet_qid",meet_qid)
+    logger.info(f"Bot time: {time.time()-bot_time}")
     # return jsonify({"A":A,"audio_id":['id001',"4月份",'id019']})
-    
-    # 7. TTS (stream) and return
-    tts_start_time = time.time()
-    chunks = bot.text2wav(A)
-    def generate_audio(chunks):
-        i = 0
-        for chunk in chunks:
-            if chunk:
-                if i==0:
-                    print(f"TTS time: {time.time()-tts_start_time}")
-                i += 1
-                segment = AudioSegment(chunk, frame_rate=32000, sample_width=2, channels=1)
-                filepath = f"/tmp/{i}.wav"
-                segment.export(filepath, format='wav')
-                data = open(filepath, "rb").read()[44:] # remove wav header
-                yield data
-    return Response(stream_with_context(generate_audio(chunks)), content_type="audio/wav")
+
+    if cfg.MODE == "phone":
+        # 7. TTS (stream) and return
+        tts_start_time = time.time()
+        chunks = bot.text2wav(A)
+        def generate_audio(chunks):
+            i = 0
+            for chunk in chunks:
+                if chunk:
+                    if i==0:
+                        logger.info(f"TTS time: {time.time()-tts_start_time}")
+                    i += 1
+                    segment = AudioSegment(chunk, frame_rate=32000, sample_width=2, channels=1)
+                    filepath = f"/tmp/{i}.wav"
+                    segment.export(filepath, format='wav')
+                    data = open(filepath, "rb").read()[44:] # remove wav header
+                    yield data
+        return Response(stream_with_context(generate_audio(chunks)), content_type="audio/wav")
+    elif cfg.MODE == "chat":
+        return jsonify({"A":A})
+    else:
+        return jsonify({"A":A})
     
 if __name__ == "__main__":
-    # Start chat server, 0.0.0.0 port 8765
     app.run(host='0.0.0.0', port=cfg.PORT, debug=False)

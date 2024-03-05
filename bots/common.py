@@ -23,6 +23,9 @@ from agents.container import ALL_AGENTS
 
 # Import specific data, split by \t
 df = pd.read_csv(cfg.data_path, encoding='utf-8', dtype={'a_id':str}, sep='\t')
+# fill nan with ""
+df = df.fillna("")
+
 logger.info(f"# Load data from {cfg.data_path}")
 
 def get_aid(qid,a_text):
@@ -37,19 +40,17 @@ def next_q(qid,aid):
     qid = int(qid)
     # print(f"Qid: {qid}, Aid: {aid}")
     next_bot_q_id = df[(df['q_id'] == qid) & (df['a_id'] == aid)]['next_q_id'].values[0]
+    next_bot_q_id = int(next_bot_q_id)
     next_bot_text = df[df['q_id'] == int(next_bot_q_id)]['text'].values[0]
     next_agent = df[df['q_id'] == int(next_bot_q_id)]['agent'].values[0]
-    label = df[df['q_id'] == int(next_bot_q_id)]['label'].values[0]
-    # if_error = df[df['q_id'] == int(next_bot_q_id)]['if_error'].values[0]
-    prefix = df[df['q_id'] == int(next_bot_q_id)]['prefix'].values[0]
+    jump_text = df[df['q_id'] == int(next_bot_q_id)]['jump_text'].values[0]
     prefix_first = df[df['q_id'] == int(next_bot_q_id)]['prefix_first'].values[0]
     return {
         "next_bot_q_id": next_bot_q_id,
         "next_bot_text": next_bot_text,
         "next_agent": next_agent,
         "error_bot_q_id": None,
-        "next_bot_label": label,
-        "prefix": prefix,
+        "jump_text": jump_text,
         "prefix_first": prefix_first,
         "if_error": None
     }
@@ -69,8 +70,10 @@ async def send_audio_file_and_receive_text(WEBSOCKET_HOST,audio_file_path):
         return result_dict.get('text', '')
 
 class Bot():
-    def __init__(self,history):
+    def __init__(self,history,meet_qid):
         self.history = history
+        self.meet_qid = meet_qid
+        logger.info(f"Init Bot with history: {history}, meet_qid: {meet_qid}")
 
     def wav2text(self,wav_file_content):
         payload={"spkid":"zhaosheng"}
@@ -133,13 +136,36 @@ class Bot():
         next_q_id = result['next_bot_q_id']
         bot_response = result['next_bot_text']
         next_agent = result['next_agent']
-        next_bot_label = result['next_bot_label']
+        prefix_first = result['prefix_first']
+        add_prefix = False
+        if now_qid not in self.meet_qid:
+            self.meet_qid.append(now_qid)
+            bot_response = prefix_first + "\n" + bot_response
+            add_prefix = True
 
         if next_agent and next_agent in ALL_AGENTS:
             agent = ALL_AGENTS[next_agent]
-            agnet_response = agent.get_response(bot_response,next_bot_label,user_question)
-            next_q_id = 0
-            return agnet_response,next_q_id
+            agent_response = agent.get_response(bot_response,user_question)
+            msg = ""
+            # if agent, update data
+            logger.info(f"Before update: {next_q_id}")
+            msg += f"{bot_response}"
+            next_q_id = int(df[df['q_id'] == next_q_id]['next_q_id'].values[0])
+            new_prefix_first = str(df[df['q_id'] == int(next_q_id)]['prefix_first'].values[0])
+            new_text = str(df[df['q_id'] == int(next_q_id)]['text'].values[0])
+            
+            if add_prefix:
+                msg += f"\n{new_prefix_first}\n{agent_response}\n{new_text}"
+            else:
+                msg += f"\n{agent_response}\n{new_text}"
+            logger.info(f"Agent response: {agent_response}")
+            logger.info(f"Bot response: {bot_response}")
+            logger.info(f"Pefix first: {prefix_first}")
+            logger.info(f"Now qid: {now_qid}, Next qid: {next_q_id}")
+            logger.info(f"Next qid: {next_q_id}")
+            logger.info(f"New prefix first: {new_prefix_first}")
+            logger.info(f"New text: {new_text}")
+            return msg,0
         else:
             return bot_response,next_q_id
 

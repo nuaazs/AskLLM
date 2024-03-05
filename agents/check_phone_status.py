@@ -1,7 +1,7 @@
-from phone_utils import check_phone_status
+from utils.phone_utils import check_phone_status
 import cfg
 from bots.chat import send_message
-
+from utils.chatbot import llm_chat
 
 class Agent:
 
@@ -9,7 +9,7 @@ class Agent:
         self.phone_number = ""
         self.id_number = ""
 
-    def get_response(self, bot_text, bot_label, user_text):
+    def get_response(self, bot_text, user_text):
         phone_status = check_phone_status(self.phone_number)  # Calling the function from the imported script
 
         # Prepare the response message based on the phone status

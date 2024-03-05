@@ -1,6 +1,6 @@
 import json
 import datetime
-from phone_utils import check_phone_balance
+from utils.phone_utils import check_phone_balance
 from bots.chat import send_message
 import cfg
 
@@ -12,7 +12,7 @@ class Agent:
 
 
 
-    def get_response(self, bot_text, bot_label, user_text):
+    def get_response(self, bot_text, user_text):
 
         balance = check_phone_balance(self.phone_number)
 

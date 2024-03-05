@@ -1,5 +1,5 @@
 <div align=center>
-<img src="asklm.png"  width="206.5" height="80.45" />
+<img src="resources/asklm.png"  width="206.5" height="80.45" />
 </div>
 <div align=center>
     <img src="https://img.shields.io/badge/License-Apache%202.0-brightgreen.svg" />
@@ -15,7 +15,9 @@
 
 AskLLM is a sophisticated conversational system designed to offer a user-friendly interaction experience through the application of natural language processing and artificial intelligence technologies. The system leverages deep learning models to process and understand user inputs, providing a range of functionalities such as extracting phone numbers from text, checking phone bills, and status inquiries, among others.
 [![中文文档](https://img.shields.io/badge/-中文-red?style=flat-square)](README_zh_cn.md)
-
+<div align=center>
+<img src="resources/demo.png"/>
+</div>
 ## Getting Started
 
 To get the AskLLM project up and running, ensure that your environment is set up with all the necessary dependencies, including a Python environment and required libraries (e.g., `torch`, `gradio`, `pandas`, etc.).

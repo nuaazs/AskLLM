@@ -27,6 +27,15 @@ def get_phone_number_list(text):
     phone_number_list = response.split()
     return phone_number_list
 
+
+import re
+
+def extract_first_number(response):
+    # 使用正则表达式查找所有数字序列
+    numbers = re.findall(r'\d+', response)
+    # 如果找到了数字序列，返回第一个；否则返回None
+    return int(numbers[0]) if numbers else 1
+
 def get_choosed_result(item_list, history, human_question, question):
     """ Get the choosed result from the model (offline) """
     # print(f"item_list: {item_list}")
@@ -58,7 +67,7 @@ def get_choosed_result(item_list, history, human_question, question):
         print("response: ", response)
         print(''.join(filter(str.isdigit, response))[0])
         print(item_list)
-        select_index = int(''.join(filter(str.isdigit, response))[0]) - 1
+        select_index = extract_first_number(response) - 1
         print(f"select_index: {select_index}")
         selected_a = item_list[select_index]
         # print(f"select_index: {select_index}, selected_a: {selected_a}")

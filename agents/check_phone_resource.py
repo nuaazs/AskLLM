@@ -1,7 +1,8 @@
 import random
-from phone_utils import check_phone_resource
+from utils.phone_utils import check_phone_resource
 from bots.chat import send_message
 import cfg
+from utils.chatbot import llm_chat
 
 class Agent:
 
@@ -9,7 +10,7 @@ class Agent:
         self.phone_number = ""
         self.id_number = ""
 
-    def get_response(self, bot_text, bot_label, user_text):
+    def get_response(self, bot_text, user_text):
         total_resource = 100  # Assuming total available resource is 100GB
         resource = check_phone_resource(self.phone_number)
         remaining_resource = total_resource - resource

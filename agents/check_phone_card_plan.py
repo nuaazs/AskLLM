@@ -1,14 +1,16 @@
 import random
 import cfg
 from bots.chat import send_message
-from phone_utils import check_phone_card_plan
+from utils.phone_utils import check_phone_card_plan
+from utils.chatbot import llm_chat
+
 class Agent:
 
     def __init__(self):
         self.phone_number = ""
         self.id_number = ""
 
-    def get_response(self, bot_text, bot_label, user_text):
+    def get_response(self, bot_text, user_text):
         plan = check_phone_card_plan(self.phone_number)  # Calling the function from the imported script
 
         # Prepare the response message

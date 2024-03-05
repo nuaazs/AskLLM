@@ -1,8 +1,9 @@
 import json
 import datetime
-from phone_utils import check_phone_recharge
+from utils.phone_utils import check_phone_recharge
 from bots.chat import send_message
 import cfg
+from utils.chatbot import llm_chat
 
 class Agent:
 
@@ -33,7 +34,7 @@ class Agent:
             return None
         return result
 
-    def get_response(self, bot_text, bot_label, user_text):
+    def get_response(self, bot_text, user_text):
         response_text = llm_chat(
             query=f"<用户文本>{user_text}</用户文本>\n请你帮我从用户文本中，抽取出他需要查询的时间区间。比如['20240401','20240430']",
             system="你是一个聊天机器人，你可以帮我从用户文本中，抽取出他需要查询的时间区间。比如['20240401','20240430']具体格式为:['开始时间','结束时间']",
