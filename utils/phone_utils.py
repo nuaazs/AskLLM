@@ -74,6 +74,7 @@ def check_phone_bill(phone_number):
     return "消费59元，其中包括固定套餐39元以及套餐外流量消耗20元。"
 
 
+
 def check_phone_detail(phone_number, start_date, end_date):
     """用户希望进行详单查询"""
     detail = [
@@ -92,6 +93,7 @@ def check_phone_location(phone_number):
         "operator": "中国移动",
     }
     return location
+
 
 
 def check_phone_recharge(phone_number, start_date, end_date):
