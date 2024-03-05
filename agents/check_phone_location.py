@@ -12,6 +12,6 @@ class Agent:
         location_info = check_phone_location(self.phone_number)  # Calling the function from the imported script
 
         # Prepare the response message
-        msg = f"���ã���ѯ���ĺ��������Ϊ��{location_info}"
-    #���ã���ѯ���ĺ��������Ϊxx�����ã���ѯ����PIN��Ϊxxx����PUK����ɸ�֪PUK1�룬PIN���粻�Կɸ�֪���Գ�ʼֵ0000���������ã���ѯ����ICCID��Ϊxxx�����ɸ��ݺ����ѯICCID�룬�޷�����ICCID�뷴���ѯ���룬����û���ICCID��֪�����룬�����û��ѿ�������ĵ����ںſͷ����ѯ
+        msg = f"您好，查询您的号码归属地为：{location_info}"
+    #您好，查询您的号码归属地为xx，您好，查询您的PIN码为xxx，（PUK码仅可告知PUK1码，PIN码如不对可告知尝试初始值0000。），您好，查询您的ICCID码为xxx，仅可根据号码查询ICCID码，无法根据ICCID码反向查询号码，如果用户有ICCID不知道号码，建议用户把卡板合照拍到公众号客服后查询
         return msg

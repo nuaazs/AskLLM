@@ -12,8 +12,8 @@ class Agent:
         plan = check_phone_card_plan(self.phone_number)  # Calling the function from the imported script
 
         # Prepare the response message
-        msg = f"ÄúµÄÊÖ»ú¿¨Ì×²ÍÎª£º{plan['package']}£¬ÔÂ×â£º{plan['monthly rent']}Ôª£¬Á÷Á¿£º{plan['remain_data']}£¬Ê£ÓàÍ¨»°Ê±³¤£º{plan['remain_call']}·ÖÖÓ"
- #ÄúÊÇÎÒË¾µçÐÅö¦ºÅ-89ÓÃ»§£¬¾ßÌå×Ê·ÑÄÚÈÝÎªÌ×²Í·Ñ89Ôª/ÔÂ£¬ÔùËÍ60·ÖÖÓÈ«¹úÖ÷½ÐÍ¨»°ºÍ20GÈ«¹úÁ÷Á¿£¬³¬³öºóÓïÒô0.15Ôª/·ÖÖÓ£¬Á÷Á¿3Ôª/GÈÕ°ü£¬µ±ÈÕÓÐÐ§£¬×Ô¶¯Ðø¶©£»¶ÌÐÅ0.1Ôª/Ìõ£¬²ÊÐÅ0.5Ôª/Ìõ£¬ÔùËÍÀ´µçÏÔÊ¾£¬ÆäËüÖ´ÐÐ±ê×¼×Ê·Ñ¡£ÈëÍøµ±ÔÂ°´ÌìÕÛËãÌ×²Í·ÑºÍ×ÊÔ´£»ºÏÔ¼ÆÚ2Äê£¬ÆÚ¼ä½ûÖ¹Í£»ú±£ºÅ½ö¿É±ä¸üÎªÍ¬ÏµÁÐ¸ßµµÌ×²Í´ÎÔÂÉúÐ§¡£
+        msg = f"æ‚¨çš„æ‰‹æœºå¡å¥—é¤ä¸ºï¼š{plan['package']}ï¼Œæœˆç§Ÿï¼š{plan['monthly rent']}å…ƒï¼Œæµé‡ï¼š{plan['remain_data']}ï¼Œå‰©ä½™é€šè¯æ—¶é•¿ï¼š{plan['remain_call']}åˆ†é’Ÿ"
+ #æ‚¨æ˜¯æˆ‘å¸ç”µä¿¡é“å·-89ç”¨æˆ·ï¼Œå…·ä½“èµ„è´¹å†…å®¹ä¸ºå¥—é¤è´¹89å…ƒ/æœˆï¼Œèµ é€60åˆ†é’Ÿå…¨å›½ä¸»å«é€šè¯å’Œ20Gå…¨å›½æµé‡ï¼Œè¶…å‡ºåŽè¯­éŸ³0.15å…ƒ/åˆ†é’Ÿï¼Œæµé‡3å…ƒ/Gæ—¥åŒ…ï¼Œå½“æ—¥æœ‰æ•ˆï¼Œè‡ªåŠ¨ç»­è®¢ï¼›çŸ­ä¿¡0.1å…ƒ/æ¡ï¼Œå½©ä¿¡0.5å…ƒ/æ¡ï¼Œèµ é€æ¥ç”µæ˜¾ç¤ºï¼Œå…¶å®ƒæ‰§è¡Œæ ‡å‡†èµ„è´¹ã€‚å…¥ç½‘å½“æœˆæŒ‰å¤©æŠ˜ç®—å¥—é¤è´¹å’Œèµ„æºï¼›åˆçº¦æœŸ2å¹´ï¼ŒæœŸé—´ç¦æ­¢åœæœºä¿å·ä»…å¯å˜æ›´ä¸ºåŒç³»åˆ—é«˜æ¡£å¥—é¤æ¬¡æœˆç”Ÿæ•ˆã€‚
 
         return msg
 

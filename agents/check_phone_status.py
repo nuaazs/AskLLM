@@ -13,11 +13,11 @@ class Agent:
         phone_status = check_phone_status(self.phone_number)  # Calling the function from the imported script
 
         # Prepare the response message based on the phone status
-        if phone_status["status"] == "Õı³£":
-            msg = f"ÄúºÃ£¬ÄúµÄÊÖ»ú¿¨×´Ì¬ÎªÕı³££¬µ±Ç°Óà¶îÎª{phone_status['balance']}Ôª£¬Ì×²ÍÎª{phone_status['package']}£¬Ê£ÓàÁ÷Á¿Îª{phone_status['remain_data']}£¬Ê£ÓàÍ¨»°Ê±³¤Îª{phone_status['remain_call']}·ÖÖÓ¡£"
-        elif phone_status["status"] == "Í£»ú":
-            msg = "ÄúºÃ£¬ÄúµÄÊÖ»ú¿¨ÒÑÍ£»ú£¬Çë³äÖµºóÔÙÊ¹ÓÃ¡£"
-        elif phone_status["status"] == "Ç··Ñ":
-            msg = f"ÄúºÃ£¬ÄúµÄÊÖ»ú¿¨ÒÑÇ··Ñ£¬Ç··Ñ½ğ¶îÎª{abs(float(phone_status['balance']))}Ôª£¬Çë¼°Ê±³äÖµÒÔ»Ö¸´Ê¹ÓÃ¡£"
+        if phone_status["status"] == "æ­£å¸¸":
+            msg = f"æ‚¨å¥½ï¼Œæ‚¨çš„æ‰‹æœºå¡çŠ¶æ€ä¸ºæ­£å¸¸ï¼Œå½“å‰ä½™é¢ä¸º{phone_status['balance']}å…ƒï¼Œå¥—é¤ä¸º{phone_status['package']}ï¼Œå‰©ä½™æµé‡ä¸º{phone_status['remain_data']}ï¼Œå‰©ä½™é€šè¯æ—¶é•¿ä¸º{phone_status['remain_call']}åˆ†é’Ÿã€‚"
+        elif phone_status["status"] == "åœæœº":
+            msg = "æ‚¨å¥½ï¼Œæ‚¨çš„æ‰‹æœºå¡å·²åœæœºï¼Œè¯·å……å€¼åå†ä½¿ç”¨ã€‚"
+        elif phone_status["status"] == "æ¬ è´¹":
+            msg = f"æ‚¨å¥½ï¼Œæ‚¨çš„æ‰‹æœºå¡å·²æ¬ è´¹ï¼Œæ¬ è´¹é‡‘é¢ä¸º{abs(float(phone_status['balance']))}å…ƒï¼Œè¯·åŠæ—¶å……å€¼ä»¥æ¢å¤ä½¿ç”¨ã€‚"
 
         return msg

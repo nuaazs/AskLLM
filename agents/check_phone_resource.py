@@ -15,9 +15,9 @@ class Agent:
         remaining_resource = total_resource - resource
 
         # Prepare the response message
-        msg = f"²éÑ¯ÄúºÅÂë°üº¬{total_resource}GB£¬½ØÖÁÄ¿Ç°ÒÑÊ¹ÓÃ{resource}GB£¬ÏÖÊ£Óà{remaining_resource}GB"
+        msg = f"æŸ¥è¯¢æ‚¨å·ç åŒ…å«{total_resource}GBï¼Œæˆªè‡³ç›®å‰å·²ä½¿ç”¨{resource}GBï¼Œç°å‰©ä½™{remaining_resource}GB"
 
         return msg
 
-        #¿Ú¾¶£º²éÑ¯ÄúºÅÂë°üº¬xx·ÖÖÓ/G£¬½ØÖ¹Ä¿Ç°ÒÑÊ¹ÓÃxx·ÖÖÓ/G£¬ÏÖÊ£Óàxx·ÖÖÓ/G¡£
+        #å£å¾„ï¼šæŸ¥è¯¢æ‚¨å·ç åŒ…å«xxåˆ†é’Ÿ/Gï¼Œæˆªæ­¢ç›®å‰å·²ä½¿ç”¨xxåˆ†é’Ÿ/Gï¼Œç°å‰©ä½™xxåˆ†é’Ÿ/Gã€‚
 

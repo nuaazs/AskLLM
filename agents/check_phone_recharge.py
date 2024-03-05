@@ -35,8 +35,8 @@ class Agent:
 
     def get_response(self, bot_text, bot_label, user_text):
         response_text = llm_chat(
-            query=f"<ÓÃ»§ÎÄ±¾>{user_text}</ÓÃ»§ÎÄ±¾>\nÇëÄã°ïÎÒ´ÓÓÃ»§ÎÄ±¾ÖĞ£¬³éÈ¡³öËûĞèÒª²éÑ¯µÄÊ±¼äÇø¼ä¡£±ÈÈç['20240401','20240430']",
-            system="ÄãÊÇÒ»¸öÁÄÌì»úÆ÷ÈË£¬Äã¿ÉÒÔ°ïÎÒ´ÓÓÃ»§ÎÄ±¾ÖĞ£¬³éÈ¡³öËûĞèÒª²éÑ¯µÄÊ±¼äÇø¼ä¡£±ÈÈç['20240401','20240430']¾ßÌå¸ñÊ½Îª:['¿ªÊ¼Ê±¼ä','½áÊøÊ±¼ä']",
+            query=f"<ç”¨æˆ·æ–‡æœ¬>{user_text}</ç”¨æˆ·æ–‡æœ¬>\nè¯·ä½ å¸®æˆ‘ä»ç”¨æˆ·æ–‡æœ¬ä¸­ï¼ŒæŠ½å–å‡ºä»–éœ€è¦æŸ¥è¯¢çš„æ—¶é—´åŒºé—´ã€‚æ¯”å¦‚['20240401','20240430']",
+            system="ä½ æ˜¯ä¸€ä¸ªèŠå¤©æœºå™¨äººï¼Œä½ å¯ä»¥å¸®æˆ‘ä»ç”¨æˆ·æ–‡æœ¬ä¸­ï¼ŒæŠ½å–å‡ºä»–éœ€è¦æŸ¥è¯¢çš„æ—¶é—´åŒºé—´ã€‚æ¯”å¦‚['20240401','20240430']å…·ä½“æ ¼å¼ä¸º:['å¼€å§‹æ—¶é—´','ç»“æŸæ—¶é—´']",
         )
         time_interval = self.extract_dates(response_text)
 
@@ -47,9 +47,9 @@ class Agent:
                 # Extract the most recent record
                 most_recent_record = max(recharge_records,key=lambda x: datetime.datetime.strptime(x['date'], '%Y-%m-%d %H:%M:%S'))
                 # Prepare the response message for the most recent record
-                msg = f"²éÑ¯µ½Äú×î½üµÄ³äÖµ¼ÇÂ¼ÈçÏÂ£º\nÈÕÆÚ£º{most_recent_record['date']}£¬½ğ¶î£º{most_recent_record['amount']}"
+                msg = f"æŸ¥è¯¢åˆ°æ‚¨æœ€è¿‘çš„å……å€¼è®°å½•å¦‚ä¸‹ï¼š\næ—¥æœŸï¼š{most_recent_record['date']}ï¼Œé‡‘é¢ï¼š{most_recent_record['amount']}"
             else:
-                msg = "±§Ç¸£¬Ã»ÓĞÕÒµ½ÈÎºÎ³äÖµ¼ÇÂ¼¡£"
+                msg = "æŠ±æ­‰ï¼Œæ²¡æœ‰æ‰¾åˆ°ä»»ä½•å……å€¼è®°å½•ã€‚"
         else:
             start_date = time_interval["start_date"]
             end_date = time_interval["end_date"]
@@ -58,10 +58,10 @@ class Agent:
 
             if recharge_records:
                 # Prepare the response message for the recharge records within the specified time interval
-                msg = "²éÑ¯µ½ÄúµÄ³äÖµ¼ÇÂ¼ÈçÏÂ£º\n"
+                msg = "æŸ¥è¯¢åˆ°æ‚¨çš„å……å€¼è®°å½•å¦‚ä¸‹ï¼š\n"
                 for record in recharge_records:
-                    msg += f"ÈÕÆÚ£º{record['date']}£¬½ğ¶î£º{record['amount']}\n"
+                    msg += f"æ—¥æœŸï¼š{record['date']}ï¼Œé‡‘é¢ï¼š{record['amount']}\n"
             else:
-                msg = "ÔÚÖ¸¶¨Ê±¼ä·¶Î§ÄÚÎ´ÕÒµ½ÈÎºÎ³äÖµ¼ÇÂ¼¡£"
+                msg = "åœ¨æŒ‡å®šæ—¶é—´èŒƒå›´å†…æœªæ‰¾åˆ°ä»»ä½•å……å€¼è®°å½•ã€‚"
 
         return msg

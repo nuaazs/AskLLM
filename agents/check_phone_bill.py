@@ -43,8 +43,8 @@ class Agent:
 
     def get_response(self, bot_text, bot_label, user_text):
         response_text = llm_chat(
-            query=f"<�û��ı�>{user_text}</�û��ı�>\n������Ҵ��û��ı��У���ȡ������Ҫ��ѯ��ʱ�����䡣����['20240401','20240430']",
-            system="����һ����������ˣ�����԰��Ҵ��û��ı��У���ȡ������Ҫ��ѯ��ʱ�����䡣����['20240401','20240430']�����ʽΪ:['��ʼʱ��','����ʱ��']",
+            query=f"<用户文本>{user_text}</用户文本>\n请你帮我从用户文本中，抽取出他需要查询的时间区间。比如['20240401','20240430']",
+            system="你是一个聊天机器人，你可以帮我从用户文本中，抽取出他需要查询的时间区间。比如['20240401','20240430']具体格式为:['开始时间','结束时间']",
         )
         time_interval = self.extract_dates(response_text)
         start_date = time_interval["start_date"]
@@ -55,9 +55,9 @@ class Agent:
 
 
         if bill_info:
-            msg = f"���ã������˵���ϢΪ��{bill_info}"
+            msg = f"您好，您的账单信息为：{bill_info}"
         else:
-            msg = "��Ǹ��δ�ܲ�ѯ�������˵���Ϣ"
-        #�����˵����ͷ������ã���ѯ�������ֹĿǰΪֹ/10�¹������� Ԫ�����а����ײͷ��� Ԫ�����ŷ� Ԫ��
-        #��ʷ�˵����ͷ������ã���ѯ��10�����ѽ��� Ԫ�������ײͷ� Ԫ�����ŷ���Ԫ��
+            msg = "抱歉，未能查询到您的账单信息"
+        #当月账单：客服：您好，查询您号码截止目前为止/10月共计消费 元，其中包含套餐费用 元，短信费 元。
+        #历史账单：客服：您好，查询您10月消费金额共计 元，其中套餐费 元，短信费用元。
         return msg
