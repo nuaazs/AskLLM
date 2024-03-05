@@ -13,4 +13,5 @@ REDIS_DB = 5
 # 外部接口
 model_name = "qwen-api" # LLM
 ASR_URL = "http://81.69.253.47:5000/transcribe/file"
+ASR_WEBSOCKET_HOST = 'localhost:10095'
 TTS_URL = "http://127.0.0.1:8910/tts_stream"

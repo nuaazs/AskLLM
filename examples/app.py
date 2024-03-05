@@ -88,4 +88,4 @@ with gr.Blocks(title='AI-XiaoXu') as demo:
     
     clear_button.click(clear_chatbot, inputs=[], outputs=[chatbot])
 
-demo.launch(enable_queue=True,inbrowser=True,)
+demo.launch(server_name='0.0.0.0',server_port=9966,enable_queue=True,inbrowser=True)

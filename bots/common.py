@@ -8,6 +8,11 @@ import importlib
 import requests
 import cfg
 import time
+import asyncio
+import websockets
+import ssl
+import json
+import os
 
 from utils.agent import get_choosed_result_n_times_try
 from bots.chat import send_message
@@ -49,6 +54,20 @@ def next_q(qid,aid):
         "if_error": None
     }
 
+async def send_audio_file_and_receive_text(WEBSOCKET_HOST,audio_file_path):
+    ssl_context = ssl.SSLContext()
+    ssl_context.check_hostname = False
+    ssl_context.verify_mode = ssl.CERT_NONE
+    uri = f"wss://{WEBSOCKET_HOST}"
+    async with websockets.connect(uri, ssl=ssl_context) as websocket:
+        with open(audio_file_path, 'rb') as f:
+            audio_data = f.read()
+        await websocket.send(audio_data)
+        await websocket.send(json.dumps({"is_speaking": False}))
+        result = await websocket.recv()
+        result_dict = json.loads(result)
+        return result_dict.get('text', '')
+
 class Bot():
     def __init__(self,history):
         self.history = history
@@ -63,6 +82,21 @@ class Bot():
             }
         response = requests.request("POST", cfg.ASR_URL, headers=headers, data=payload, files=files)
         return response.json()['transcription']['text']
+
+        
+        ASR_WEBSOCKET_HOST = cfg.ASR_WEBSOCKET_HOST
+        # return asyncio.get_event_loop().run_until_complete(send_audio_file_and_receive_text(ASR_WEBSOCKET_HOST,audio_file_path))
+
+        # save wav_file_content to audio_file_path
+        # wav_file_content is FileStorage object
+        audio_file_path = f"/tmp/{int(time.time())}.wav"
+        with open(audio_file_path, 'wb') as f:
+            f.write(wav_file_content.read())
+        # make audio_file_path to 1 channel, 16k by ffmpeg
+        audio_file_output_path = f"/tmp/{int(time.time())}_16k.wav"
+        os.system(f"ffmpeg -i {audio_file_path} -ac 1 -ar 16000 {audio_file_output_path}")
+
+        return asyncio.run(send_audio_file_and_receive_text(ASR_WEBSOCKET_HOST, audio_file_output_path))
 
     def text2wav(self,text,oss=False):
         headers = {'Content-Type': 'application/json'}
