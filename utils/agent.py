@@ -16,7 +16,7 @@ def request_Q(Q, history):
 
 def get_phone_number_list(text):
     """ Get the phone number list from the model (offline) """
-    Q = f"请你以下内容，帮我提取所有有效的手机号码，以列表的形式给我：\n"
+    Q = f"请你以下内容，帮我提取所有有效的手机号码，以列表的形式给我（注意，你需要考虑到中文对话习惯，如果是中文则将中文转化成对应的手机号）：\n"
     Q += f"<内容>：{text}</内容>"
     Q += f"\n告诉我答案，不需要任何解释，不需要任何其他文本。回答格式<json>，例如：[\"12345678901\",\"12345678902\"]"
     response, history = request_Q(Q, [])
@@ -27,19 +27,20 @@ def get_phone_number_list(text):
     phone_number_list = response.split()
     return phone_number_list
 
-def get_choosed_result(item_list, history, question):
+def get_choosed_result(item_list, history, human_question, question):
     """ Get the choosed result from the model (offline) """
     # print(f"item_list: {item_list}")
     # print(f"history: {history}")
     # print(f"question: {question}")
 
-    Q = f"请你以下对话，然后回答：\n"
+    Q = f"请你根据以下对话以及人类的最后回复，然后回答：\n"
 
     Q += f"<历史对话>"
     for i in range(len(history)):
-        Q += f"\n机器：{history[i][0]}"
+        Q += f"\n人类：{history[i][0]}"
         if len(history[i]) > 1:
-            Q += f"\n人类：{history[i][1]}"
+            Q += f"\n机器：{history[i][1]}\n\n"
+    Q += f"\n人类最后回复：{human_question}"
     Q += f"\n</历史对话>"
 
     Q += f"\n<问题>：{question}</问题>"
@@ -67,11 +68,11 @@ def get_choosed_result(item_list, history, question):
         print(f"# ERROR! 无法识别")
     return select_index
 
-def get_choosed_result_n_times_try(item_list, history, question, n=1):
+def get_choosed_result_n_times_try(item_list, history, human_question,question, n=1):
     """ Get the choosed result from the model (offline) """
     choosed_result = []
     for i in range(n):
-        selected_a_index = get_choosed_result(item_list, history, question)
+        selected_a_index = get_choosed_result(item_list, history, human_question, question)
         choosed_result.append(selected_a_index)
     # 返回出现次数最多的结果
     # print(f"choosed_result: {choosed_result}")

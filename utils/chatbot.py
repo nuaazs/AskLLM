@@ -17,11 +17,11 @@ def chat(Q,history):
         messages=messages,
         result_format='message',
     )
-    new_history = history
-    new_history.append((Q,response['output']['choices'][0]['message']['content']))
+    # new_history = history
+    # new_history.append((Q,response['output']['choices'][0]['message']['content']))
     logger.info(f"Q: {Q}")
     logger.info(f"A: {response['output']['choices'][0]['message']['content']}")
-    return response['output']['choices'][0]['message']['content'], new_history
+    return response['output']['choices'][0]['message']['content'], history
 
 if __name__ == '__main__':
     Q = "你好"
