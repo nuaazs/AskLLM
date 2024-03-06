@@ -36,7 +36,7 @@ with gr.Blocks(title='AI-XiaoXu') as demo:
     """)
 
     # 试听init.wav
-    gr.Audio("examples/init.wav", autoplay=True, label="音色示例") #, description="点击播放示例")
+    gr.Audio("/home/zhaosheng/Documents/AI_XIAOYI/asklm/examples/init.wav", autoplay=False, label="音色示例") #, description="点击播放示例")
     # Random generate session_id for each user
     session_id = str(random.randint(100000, 999999))
 
@@ -62,8 +62,10 @@ with gr.Blocks(title='AI-XiaoXu') as demo:
 
     def clear_chatbot():
         chatbot.value = []  # Clear chatbot history directly
+        session_id = str(random.randint(100000, 999999))
+        return session_id,[]
 
     send_button.click(chat_with_bot, inputs=[user_input,session_id,chatbot], outputs=[chatbot])
-    clear_button.click(clear_chatbot, inputs=[], outputs=[chatbot])
+    clear_button.click(clear_chatbot, inputs=[], outputs=[session_id,chatbot])
 # port 7863
 demo.launch(server_name='0.0.0.0',server_port=7863)
