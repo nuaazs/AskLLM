@@ -83,6 +83,7 @@ def get_choosed_result_n_times_try(item_list, history, human_question,question, 
     for i in range(n):
         selected_a_index = get_choosed_result(item_list, history, human_question, question)
         choosed_result.append(selected_a_index)
+    print(choosed_result)
     # 返回出现次数最多的结果
     # print(f"choosed_result: {choosed_result}")
     r_index = max(set(choosed_result), key = choosed_result.count)
