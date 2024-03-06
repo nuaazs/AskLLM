@@ -69,13 +69,22 @@ def check_phone_resource(phone_number):
     return remain_data
 
 
-def check_phone_bill(phone_number):
+def check_phone_bill(phone_number,start_date="", end_date=""):
     """用户希望进行账单查询"""
-    return "消费59元，其中包括固定套餐39元以及套餐外流量消耗20元。"
+    bill_record = [
+        {"date": "2024-01-01 12:00:00", "amount": "100元"},
+        {"date": "2024-01-05 12:00:00", "amount": "20元"},
+        {"date": "2024-02-02 12:00:00", "amount": "50元"},
+        {"date": "2024-02-04 12:00:00", "amount": "15元"},
+        {"date": "2024-03-03 12:00:00", "amount": "25元"},
+        {"date": "2024-03-04 12:00:00", "amount": "1000元"},
+    ]
+    return bill_record
 
 
 
-def check_phone_detail(phone_number, start_date, end_date):
+
+def check_phone_detail(phone_number, start_date="", end_date=""):
     """用户希望进行详单查询"""
     detail = [
         {"date": "2021-01-01", "type": "通话", "duration": "10分钟", "fee": "0.5元"},
@@ -96,13 +105,16 @@ def check_phone_location(phone_number):
 
 
 
-def check_phone_recharge(phone_number, start_date="", end_date=""):
+def check_phone_recharge(phone_number, date=""):
     """
     用户希望进行充值记录查询
     """
     recharge_record = [
-        {"date": "2021-01-01 12:00:00", "amount": "100元"},
-        {"date": "2021-01-02 12:00:00", "amount": "50元"},
-        {"date": "2021-01-03 12:00:00", "amount": "20元"},
+        {"date": "2024-01-01 12:00:00", "amount": "100元"},
+        {"date": "2024-01-05 12:00:00", "amount": "20元"},
+        {"date": "2024-02-02 12:00:00", "amount": "50元"},
+        {"date": "2024-02-04 12:00:00", "amount": "15元"},
+        {"date": "2024-03-03 12:00:00", "amount": "25元"},
+        {"date": "2024-03-04 12:00:00", "amount": "1000元"},
     ]
     return recharge_record

@@ -16,7 +16,7 @@ class Agent:
         if phone_status["status"] == "正常":
             msg = f"您好，您的手机卡状态为正常，当前余额为{phone_status['balance']}元，套餐为{phone_status['package']}，剩余流量为{phone_status['remain_data']}，剩余通话时长为{phone_status['remain_call']}分钟。"
         elif phone_status["status"] == "停机":
-            msg = "您好，您的手机卡已停机，请充值后再使用。"
+            msg = "您好，您的手机卡已停机。"
         elif phone_status["status"] == "欠费":
             msg = f"您好，您的手机卡已欠费，欠费金额为{abs(float(phone_status['balance']))}元，请及时充值以恢复使用。"
 

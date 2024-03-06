@@ -47,17 +47,24 @@ class Agent:
             system="你是一个聊天机器人，你可以帮我从用户文本中，抽取出他需要查询的时间区间。比如['20240401','20240430']具体格式为:['开始时间','结束时间']",
         )
         time_interval = self.extract_dates(response_text)
-        start_date = time_interval["start_date"]
-        end_date = time_interval["end_date"]
 
+        if time_interval is None:  # 如果未提取到时间
+            today = datetime.datetime.today()
+            start_date = today.replace(day=1)  # 当月第一天
+            end_date = today
+        else:
+            start_date = time_interval["start_date"]
+            end_date = time_interval["end_date"]
 
-        bill_info = check_phone_bill(self.phone_number)
-
+        # 调用 check_phone_bill 函数查询账单信息
+        bill_info = check_phone_bill(self.phone_number, start_date, end_date)
 
         if bill_info:
-            msg = f"您好，您的账单信息为：{bill_info}"
+            # 准备账单信息的响应消息
+            msg = "查询到您的账单信息如下：\n"
+            for record in bill_info:
+                msg += f"日期：{record['date']}，金额：{record['amount']}\n"
         else:
             msg = "抱歉，未能查询到您的账单信息"
-        #当月账单：客服：您好，查询您号码截止目前为止/10月共计消费 元，其中包含套餐费用 元，短信费 元。
-        #历史账单：客服：您好，查询您10月消费金额共计 元，其中套餐费 元，短信费用元。
+
         return msg
