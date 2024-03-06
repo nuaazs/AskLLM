@@ -126,7 +126,7 @@ class Bot():
             history = self.history,
             human_question = user_question,
             question = "用户的表达的意思是什么？",
-            n = 1
+            n = cfg.query_times
         )
         # Get answer type id
         aid = get_aid(now_qid,r_text)
