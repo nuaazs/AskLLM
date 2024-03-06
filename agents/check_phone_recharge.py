@@ -4,6 +4,7 @@ from utils.phone_utils import check_phone_recharge
 from bots.chat import send_message
 import cfg
 from utils.chatbot import llm_chat
+import re
 
 class Agent:
 
@@ -12,60 +13,66 @@ class Agent:
         self.id_number = ""
 
     @staticmethod
-    def extract_date(input_str):
+    def extract_dates(input_str):
         try:
-            # 从字符串中提取日期
-            date_str = json.loads(input_str)[0]  # 假设日期是列表中的第一个元素
-            # 将日期字符串转换为 datetime 对象
-            date = datetime.datetime.strptime(date_str, '%Y%m%d')
-            # 将 datetime 对象格式化为指定的字符串格式
-            formatted_date = date.strftime('%Y-%m-%d')
+            # input str中除了数字外，还有其他所有非数字字符直接替换为空格
+            input_str = re.sub(r'\D', ' ', input_str)
+            print(input_str)
+            # 用空格分隔字符串
+            start_date_str = input_str.split()[-2]
+            end_date_str = input_str.split()[-1]
+            # Convert date strings to datetime objects
+            formatted_start_date = datetime.datetime.strptime(start_date_str, '%Y%m%d').strftime('%Y-%m-%d')
+            formatted_end_date = datetime.datetime.strptime(end_date_str, '%Y%m%d').strftime('%Y-%m-%d')
 
-            # 构建结果字典
+            # Build result dictionary
             result = {
-                "date": formatted_date
+                "start_date": formatted_start_date,
+                "end_date": formatted_end_date
             }
         except Exception as e:
-            # 如果未提取到日期信息，返回 None
-            return None
+            print(e)
+            result = None
         return result
 
     def get_response(self, bot_text, user_text):
+        today_str = datetime.datetime.today().strftime('%Y年%m月%d日')
         response_text = llm_chat(
-            query=f"<用户文本>{user_text}</用户文本>\n请你帮我从用户文本中，抽取出他需要查询的时间。比如['20240401'],如果只有月份，则提取到月份，比如['202404']",
-            system="你是一个聊天机器人，你可以帮我从用户文本中，抽取出他需要查询的时间。比如['20240401'],如果只有月份，则提取到月份，比如['202404']具体格式为：['查询时间']]",
+            query=f"<用户文本>{user_text}</用户文本>\n请你帮我从用户文本中，抽取出他需要查询的时间区间。具体格式为:['开始时间','结束时间'],比如用户说1月份，你返回：['20240401','20240430']\n比如用户说3月份，你返回：['20240301','20240330']\n\n注：今天日期为：{today_str},如果时间大于今天，则年份改成去年的值",
+            system=f"你是一个聊天机器人，你可以帮我从用户文本中，抽取出他需要查询的时间区间。具体格式为:['开始时间','结束时间'],比如用户说1月份，你返回：['20240401','20240430']\n比如用户说3月份，你返回：['20240301','20240330']\n\n注：今天日期为：{today_str}",
         )
-        time_info = self.extract_date(response_text)
+        time_interval = self.extract_dates(response_text)
 
-        if time_info is None or len(time_info["date"]) == 6:
-            # 如果未提供查询时间或者只提供了月份，则查询当月所有充值记录
-            today = datetime.datetime.today()
-            start_date = today.replace(day=1).strftime('%Y-%m-%d')  # 当月第一天
-            end_date = today.strftime('%Y-%m-%d')  # 当天
-            recharge_records = check_phone_recharge(self.phone_number, start_date, end_date)
-            if recharge_records:
-                # 准备当月所有充值记录的响应消息
-                msg = "查询到您本月的充值记录如下：\n"
-                for record in recharge_records:
+        if time_interval:
+            start_date = time_interval["start_date"]
+            end_date = time_interval["end_date"]
+            # 调用 check_phone_bill 函数查询账单信息
+            bill_info = check_phone_recharge(self.phone_number, start_date, end_date)
+            print(f"start_date: {start_date}, end_date: {end_date}")
+            print(f"bill_info: {bill_info}")
+            # start_date -> YYYY-MM-DD
+            # end_date -> YYYY-MM-DD
+            start_date_str = datetime.datetime.strptime(start_date, '%Y-%m-%d').strftime('%Y年%m月%d日')
+            end_date_str = datetime.datetime.strptime(end_date, '%Y-%m-%d').strftime('%Y年%m月%d日')
+            if bill_info:
+                # 准备账单信息的响应消息
+                msg = f"查询到{start_date_str}到{end_date_str}时间内，您的充值记录如下：\n"
+                # 只选择最新的三条记录
+                latest_records = bill_info[:3]
+                for record in latest_records:
                     msg += f"日期：{record['date']}，金额：{record['amount']}\n"
             else:
-                msg = "本月未找到任何充值记录。"
+                msg = f"在{start_date_str}到{end_date_str}时间内，未能查询到您的充值记录信息"
         else:
-            query_date = time_info["date"]
-            # 调用 check_phone_recharge 函数查询充值记录
-            recharge_records = check_phone_recharge(self.phone_number, query_date)
-
-            if recharge_records:
-                # 准备充值记录的响应消息
-                msg = "查询到您的充值记录如下：\n"
-                for record in recharge_records:
+            # 如果未提取到时间区间，查询最近三次充值记录
+            bill_info = check_phone_recharge(self.phone_number)
+            if bill_info:
+                msg = "查询到最近三次充值记录如下：\n"
+                # 只选择最新的三条记录
+                latest_records = bill_info[:3]
+                for record in latest_records:
                     msg += f"日期：{record['date']}，金额：{record['amount']}\n"
             else:
-                # 如果未找到指定日期的充值记录，则查询距离指定日期最近一次的充值记录
-                last_record = check_phone_recharge(self.phone_number, query_date)
-                if last_record:
-                    msg = f"查询到最近的一次充值记录如下：\n日期：{last_record[0]['date']}，金额：{last_record[0]['amount']}"
-                else:
-                    msg = f"在指定时间 {query_date} 未找到任何充值记录。"
+                msg = "未找到最近三次的充值记录。"
 
         return msg
