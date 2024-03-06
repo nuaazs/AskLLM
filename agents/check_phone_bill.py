@@ -58,10 +58,15 @@ class Agent:
 
         # 调用 check_phone_bill 函数查询账单信息
         bill_info = check_phone_bill(self.phone_number, start_date, end_date)
-
+        print(f"start_date: {start_date}, end_date: {end_date}")
+        print(f"bill_info: {bill_info}")
+        # start_date -> YYYY-MM-DD
+        # end_date -> YYYY-MM-DD
+        start_date_str = datetime.datetime.strptime(start_date, '%Y-%m-%d').strftime('%Y年%m月%d日')
+        end_date_str = datetime.datetime.strptime(end_date, '%Y-%m-%d').strftime('%Y年%m月%d日')
         if bill_info:
             # 准备账单信息的响应消息
-            msg = "查询到您的账单信息如下：\n"
+            msg = f"查询到{start_date_str}到{end_date_str}时间内，您的账单信息如下：\n"
             for record in bill_info:
                 msg += f"日期：{record['date']}，金额：{record['amount']}\n"
         else:

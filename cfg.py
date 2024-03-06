@@ -1,8 +1,8 @@
 data_path = "./resources/data.csv"
 
-query_times = 1
+query_times = 5
 
-start_text = "您好，这里是长江时代客服中心，很高兴为您服务。请问有什么可以帮到您的吗？"
+start_text = "您好，这里是长江时代客服中心，工号1997为您服务。请问有什么可以帮到您的吗？"
 
 PORT = 8766
 # Redis配置

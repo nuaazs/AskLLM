@@ -34,16 +34,23 @@ with gr.Blocks(title='AI-XiaoXu') as demo:
         <h3>版权所有@龙垣科技</h3>
     </div>
     """)
+
+    # 试听init.wav
+    gr.Audio("examples/init.wav", autoplay=True, label="音色示例") #, description="点击播放示例")
+    # Random generate session_id for each user
+    session_id = str(random.randint(100000, 999999))
+
     with gr.Row():
         init_message = cfg.start_text
         history = [("", init_message)]
-        chatbot = gr.Chatbot(value=history)
+        chatbot = gr.Chatbot(value=history, label="对话历史")
     with gr.Column():
         with gr.Row():
-            with gr.Column():
-                session_id = gr.Textbox(visible=True, label="对话ID", value="15151832002")
-            with gr.Column():
-                user_input = gr.Textbox(label="用户输入")
+            # with gr.Column():
+                # session_id = gr.Textbox(visible=True, label="对话ID", value="15151832002")
+            # with gr.Column():
+            user_input = gr.Textbox(label="用户输入")
+            session_id = gr.Textbox(label="对话ID", value=session_id)
         with gr.Row():
             clear_button = gr.Button("清除 💣")
             send_button = gr.Button("发送 🚀")
