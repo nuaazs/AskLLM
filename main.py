@@ -29,6 +29,8 @@ app = Flask(__name__)
 
 @app.route('/chat', methods=['POST'])
 def chatchat():
+    # 打印请求体
+    print(request.form)
     init_time = time.time()
     
     # 1. Get session_id
@@ -72,14 +74,21 @@ def chatchat():
     elif cfg.MODE == "chat":
         Q = request.form.get('Q')
     elif cfg.MODE == "wechat":
-        Q = request.form.get('text')
-    
+        Q = request.form.get('text',"None")
+        if Q == "None" or Q == "":
+            audio_file = request.files['audio']
+            Q = bot.wav2text(audio_file)
+            print(f"ASR Q: {Q}")
+            print(f"Now Qid: {now_qid}")
+    print(f"Q: {Q}")
+    print(request.form.get('text',"None"))
     bot_time = time.time()
     A,next_q_id = bot.get_response(Q,now_qid)
-    history.append((Q, A))
+    # history.append((Q, A))
     # 6. update history to redis
-    save_to_redis(f"{session_id}_history",history)
+    save_to_redis(f"{session_id}_history",bot.history)
     save_to_redis(f"{session_id}_qid",next_q_id)
+    print(f"save next_q_id: {next_q_id} to redis")
     save_to_redis(f"{session_id}_meet_qid",meet_qid)
     logger.info(f"Bot time: {time.time()-bot_time}")
     
@@ -105,6 +114,13 @@ def chatchat():
     elif cfg.MODE == "chat":
         return jsonify({"A":A})
     elif cfg.MODE == "wechat":
+        # chang "\n" to "<br>" in A
+        # A = A.replace(r"\n","")
+        N = """
+"""
+        A = A.replace(r"/n",r"\n")
+        A = A.replace(r"<br>",r"\n")
+        A = A.replace(r"\n",N)
         return jsonify(
             {"code":0,
              "data":{
